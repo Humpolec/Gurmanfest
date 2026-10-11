@@ -113,6 +113,7 @@ Web bude obsahovat šest hlavních obsahových a funkčních sekcí dostupných 
 
 ### 4.1 Struktura webu (sitemap)
 
+```text
 Úvodní stránka
 │
 ├── Program
@@ -145,6 +146,7 @@ Web bude obsahovat šest hlavních obsahových a funkčních sekcí dostupných 
 │
 └── Můj program
     └── Přehled uložených událostí
+```
 
 Jednotlivé části nemusí vždy představovat samostatné HTML stránky. Některé funkce, například filtrování programu, budou součástí příslušné stránky.
 
