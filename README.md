@@ -33,7 +33,7 @@ Webové stránky fiktivního gastronomického a hudebního festivalu zaměřené
 | Člen | Jméno a příjmení | GitHub | Odpovědnost |
 |---|---|---|---|
 | Člen 1 | Daniel Bartoníček | [@Humpolec](https://github.com/Humpolec) | Koordinace projektu |
-| Člen 2 | Filip Talián | [@WidePutin1964](https://github.com/WidePutin1964) | Bude rozděleno |
+| Člen 2 | Filip Talián | [@TalosF](https://github.com/TalosF) | Bude rozděleno |
 | Člen 3 | Vladislav Zahrabailau | [@Polearp](https://github.com/Polearp) | Bude rozděleno |
 | Člen 4 | Josef Kovář | Bude doplněno | Bude rozděleno |
 
