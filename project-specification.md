@@ -4,7 +4,7 @@
 
 | Položka | Hodnota |
 |---|---|
-| Název festivalu | [NÁZEV FESTIVALU – bude doplněn po hlasování] |
+| Název festivalu | Gurmánfest |
 | Ročník | 1. ročník (2027) |
 | Lokalita | Mikulov, Česká republika |
 | Datum konání | 16.–18. července 2027 |

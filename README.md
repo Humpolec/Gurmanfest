@@ -1,5 +1,5 @@
 
-# [NÁZEV FESTIVALU] – Web Design
+# Gurmánfest – Web Design
 
 **Semestrální projekt | Akademický rok 2026/2027**
 
@@ -65,7 +65,7 @@ Přesné termíny odevzdání se řídí oficiálním zadáním a pokyny vyučuj
 - [x] Definice cílových skupin.
 - [x] Informační architektura.
 - [x] Uživatelské scénáře.
-- [ ] Schválení názvu festivalu.
+- [x] Schválení názvu festivalu.
 - [ ] Dokončení `data.json`.
 - [ ] Kontrola konzistence dat.
 - [ ] Týmová kontrola specifikace.
@@ -77,7 +77,7 @@ Přesné termíny odevzdání se řídí oficiálním zadáním a pokyny vyučuj
 Pracovní repozitář bude obsahovat povinné výstupy i pomocnou dokumentaci.
 
 ```text
-vino-syr-festival/
+Gurmánfest/
 ├── README.md
 ├── project-specification.md
 ├── data.json
