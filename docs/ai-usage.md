@@ -146,6 +146,78 @@ AI slouží jako podpůrný nástroj při návrhu projektu, tvorbě dokumentace 
 
 **Omezení:** Rekonstrukce starších kroků vychází z dostupné historie komunikace. Ne všechny přesné prompty a jednotlivé verze souborů lze zpětně doložit.
 
+### AI-006 – Tvorba festivalové datové základny
+
+**Datum:** 13. 10. 2026  
+**Soubor:** `data.json`  
+**Oblast:** Datový model a festivalový program
+
+**Účel:** Vytvoření strukturovaných dat pro gastronomický a hudební festival podle požadavků vyučujícího.
+
+**Použití AI:**
+- Návrh datové struktury ve formátu JSON.
+- Vytvoření programu pro tři festivalové dny a dvě scény.
+- Příprava seznamu 60 účinkujících a 60 programových položek.
+- Návrh regionálních kombinací vín a sýrů pocházejících ze stejných geografických oblastí.
+- Propojení datových záznamů pomocí identifikátorů.
+- Optimalizace rozsahu a formátování JSON souboru.
+
+**Přijaté výstupy:** Datový soubor obsahující festivalové dny, scény, účinkující, program, geografické regiony, vína, sýry a jejich párování.
+
+**Vlastní rozhodnutí a úpravy:** Výběr formátu JSON, zachování dvou scén a zařazení různých hudebních žánrů včetně rapu a hip-hopu. Datový soubor byl upraven tak, aby odpovídal konceptu festivalu Gurmánfest.
+
+**Ověření:** Kontrola platnosti JSON struktury, požadovaných počtů položek a návaznosti jednotlivých záznamů prostřednictvím ID.
+
+**Zjištěné nedostatky:** Původní verze souboru byla zbytečně rozsáhlá a některé údaje o festivalu neodpovídaly projektové specifikaci. Bylo nutné soubor zkrátit a sjednotit identifikační údaje.
+
+### AI-007 – Návrh interaktivního doporučovače
+
+**Datum:** 13. 10. 2026  
+**Soubor:** `data.json`  
+**Oblast:** Návrh funkcionality a uživatelská zkušenost
+
+**Účel:** Navržení interaktivní funkce propojující gastronomický a hudební program festivalu.
+
+**Použití AI:**
+- Konzultace konceptu funkce „Co si dát k poslechu?“.
+- Návrh výběru podle hudebního žánru, nálady a preferovaného nápoje.
+- Vytvoření 20 připravených doporučení.
+- Propojení regionálních dvojic vín a sýrů s konkrétními degustacemi a koncerty.
+- Návrh datových vazeb potřebných pro budoucí implementaci v JavaScriptu.
+
+**Přijaté výstupy:** Datová struktura doporučovače, která umožňuje na základě preferencí zobrazit regionální víno, sýr, odpovídající degustaci a navazující koncert.
+
+**Vlastní rozhodnutí a úpravy:** Použití předem připravených kombinací namísto náhodně generovaných doporučení. Doplnění informace o věkovém omezení alkoholických degustací a možnosti nealkoholické alternativy.
+
+**Ověření:** Kontrola návaznosti doporučení na existující programové položky, geografická párování a časové pořadí událostí.
+
+**Omezení:** Doporučovač byl zatím připraven na datové úrovni. Jeho funkčnost a použitelnost bude nutné ověřit až při implementaci webu.
+
+### AI-008 – Aktualizace a kontrola projektové specifikace
+
+**Datum:** 13. 10. 2026  
+**Soubor:** `project-specification.md`  
+**Oblast:** Projektová dokumentace a kontrola konzistence
+
+**Účel:** Aktualizace původní projektové specifikace podle připraveného datového souboru a nově navržených funkcí.
+
+**Použití AI:**
+- Porovnání projektové specifikace s datovým souborem `data.json`.
+- Doplnění čtvrté cílové skupiny zaměřené na mladé dospělé.
+- Aktualizace informační architektury a počtu scén.
+- Zařazení doporučovače „Co si dát k poslechu?“ do struktury webu.
+- Doplnění čtvrtého uživatelského scénáře.
+- Doplnění informací o datovém základu a technickém řešení.
+- Kontrola obsahových nesrovnalostí, gramatiky a Markdown syntaxe.
+
+**Přijaté výstupy:** Aktualizovaná projektová specifikace se čtyřmi cílovými skupinami, čtyřmi uživatelskými scénáři a popisem tří hlavních interaktivních funkcí.
+
+**Vlastní rozhodnutí a úpravy:** Zachování původní struktury dokumentu a odmítnutí zbytečně rozsáhlého přepisování. Sjednocení názvu Gurmánfest, lokality Mikulov a termínu 16.–18. července 2027. Oprava příkladu hudební skupiny ve scénáři podle skutečného obsahu JSONu.
+
+**Ověření:** Opakované porovnání projektové specifikace s JSONem a požadavky vyučujícího. Kontrola struktury Markdownu a návaznosti uživatelských scénářů na navržené funkce.
+
+**Zjištěné nedostatky:** AI v některých návrzích měnila původní identitu festivalu nebo příliš zasahovala do struktury dokumentu. Tyto návrhy byly opraveny podle původní specifikace.
+
 ## 3. Souhrn dosavadní práce
 
 | Oblast | Dosavadní výsledek |
@@ -156,6 +228,12 @@ AI slouží jako podpůrný nástroj při návrhu projektu, tvorbě dokumentace 
 | GitHub | Připraven repozitář, řešeno verzování a technické problémy |
 | Kontrola zadání | Ověřena struktura projektové specifikace |
 | Evidence AI | Připraven systém průběžného zaznamenávání |
+
+| Datová základna | Vytvořen `data.json` se 3 dny, 2 scénami, 60 účinkujícími a 60 programovými položkami |
+| Doporučovač | Připraveno 20 doporučení pro funkci „Co si dát k poslechu?“ |
+| Aktualizace specifikace | Doplněna čtvrtá cílová skupina, čtvrtý uživatelský scénář a technické řešení |
+| Kontrola konzistence | Sjednoceny údaje a návaznosti mezi `project-specification.md` a `data.json` |
+
 
 ## 4. Zhodnocení využití AI
 
@@ -169,6 +247,4 @@ AI proto slouží jako podpůrný nástroj, nikoliv jako náhrada vlastního roz
 
 ## 5. Další evidence
 
-Následující významná použití AI budou průběžně zaznamenávána stejným způsobem, zejména při tvorbě datové základny, prototypování, implementaci a testování.
-
-U každého záznamu bude uveden účel použití, výsledek, vlastní zásahy, způsob ověření a případné zjištěné nedostatky.
+Následující významná použití AI budou průběžně zaznamenávána stejným způsobem, zejména při návrhu prototypu, implementaci webu, testování a následných úpravách projektu.
