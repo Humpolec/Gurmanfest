@@ -228,7 +228,6 @@ AI slouží jako podpůrný nástroj při návrhu projektu, tvorbě dokumentace 
 | GitHub | Připraven repozitář, řešeno verzování a technické problémy |
 | Kontrola zadání | Ověřena struktura projektové specifikace |
 | Evidence AI | Připraven systém průběžného zaznamenávání |
-
 | Datová základna | Vytvořen `data.json` se 3 dny, 2 scénami, 60 účinkujícími a 60 programovými položkami |
 | Doporučovač | Připraveno 20 doporučení pro funkci „Co si dát k poslechu?“ |
 | Aktualizace specifikace | Doplněna čtvrtá cílová skupina, čtvrtý uživatelský scénář a technické řešení |
