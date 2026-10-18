@@ -33,9 +33,9 @@ Webové stránky fiktivního gastronomického a hudebního festivalu zaměřené
 | Člen | Jméno a příjmení | GitHub | Odpovědnost |
 |---|---|---|---|
 | Člen 1 | Daniel Bartoníček | [@Humpolec](https://github.com/Humpolec) | Koordinace projektu |
-| Člen 2 | Filip Talián | [@TalosF](https://github.com/TalosF) | Bude rozděleno |
-| Člen 3 | Vladislav Zahrabailau | [@Polearp](https://github.com/Polearp) | Bude rozděleno |
-| Člen 4 | Josef Kovář | [@PePa24](https://github.com/PePa24)| Bude rozděleno |
+| Člen 2 | Filip Talián | [@TalosF](https://github.com/TalosF) | Týmová kontrola specifikace a konzistence dat |
+| Člen 3 | Vladislav Zahrabailau | [@Polearp](https://github.com/Polearp) | Týmová kontrola specifikace a konzistence dat |
+| Člen 4 | Josef Kovář | [@PePa24](https://github.com/PePa24)| Týmová kontrola specifikace a konzistence dat |
 
 Konkrétní úkoly a odpovědnosti jednotlivých členů týmu budou rozdělovány podle aktuálních milníků prostřednictvím GitHub Issues.
 
@@ -66,9 +66,9 @@ Přesné termíny odevzdání se řídí oficiálním zadáním a pokyny vyučuj
 - [x] Informační architektura.
 - [x] Uživatelské scénáře.
 - [x] Schválení názvu festivalu.
-- [ ] Dokončení `data.json`.
-- [ ] Kontrola konzistence dat.
-- [ ] Týmová kontrola specifikace.
+- [x] Dokončení `data.json`.
+- [x] Kontrola konzistence dat.
+- [x] Týmová kontrola specifikace.
 - [ ] Příprava prezentace.
 - [ ] Odevzdání prvního milníku.
 

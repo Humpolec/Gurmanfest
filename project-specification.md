@@ -6,10 +6,11 @@
 |---|---|
 | Název festivalu | Gurmánfest |
 | Ročník | 1. ročník (2027) |
-| Lokalita | Mikulov, Česká republika |
+| Lokalita | Gurmánfest Park Mikulov – fiktivní dočasný areál v Mikulově, Česká republika |
 | Datum konání | 16.–18. července 2027 |
+| Areál | Gurmánfest Park Mikulov (fiktivní návrh; nejde o skutečné místo konání) |
 | Charakter festivalu | Třídenní gastronomický a hudební festival |
-| Hlavní témata | Degustace regionálních vín a sýrů, párování produktů ze stejných geografických oblastí, koncerty českých hudebních skupin a sólových interpretů |
+| Hlavní témata | Degustace regionálních vín a sýrů, párování produktů ze stejných geografických oblastí, koncerty českých a slovenských hudebních skupin a sólových interpretů |
 
 ## 2. Účel webu
 
@@ -17,7 +18,7 @@
 
 Účelem webových stránek je poskytovat návštěvníkům přehledné informace o gastronomickém a hudebním festivalu zaměřeném na degustaci vín a sýrů pocházejících ze stejných geografických regionů.
 
-Web bude sloužit jako hlavní informační platforma festivalu. Návštěvníci zde naleznou informace o jednotlivých degustacích, nabízených vínech a sýrech, hudebních vystoupeních, programu festivalu a jeho organizačním zajištění.
+Web bude sloužit jako hlavní informační platforma festivalu. Návštěvníci zde naleznou informace o jednotlivých degustacích, nabízených vínech a sýrech, hudebních vystoupeních, programu festivalu a jeho organizačním zajištění. Pro účely projektu je navržen fiktivní venkovní areál Gurmánfest Park Mikulov s modelovým rozmístěním scén a návštěvnickým zázemím. Uvedené provozní údaje a kontakty jsou ilustrační a neoznačují skutečnou pořádanou akci.
 
 ### 2.2 Hlavní cíle webu
 
@@ -188,9 +189,10 @@ Web bude obsahovat úvodní stránku a sedm dalších hlavních obsahových a fu
 │   └── Degustační scéna
 │
 ├── Praktické informace
-│   ├── Lokalita a doprava
-│   ├── Pravidla festivalu
-│   └── Kontakt
+│   ├── Fiktivní areál, plánek a doprava
+│   ├── Vstupné a otevírací doba
+│   ├── Pravidla festivalu a přístupnost
+│   └── Kontakt (modelový)
 │
 ├── Můj program
 │   └── Přehled uložených událostí
@@ -241,7 +243,7 @@ Na mobilních zařízeních bude navigace přizpůsobena menší šířce obrazo
 
 #### 4.3.2 Program
 
-Sekce bude obsahovat kompletní harmonogram festivalových událostí včetně koncertů, řízených degustací.
+Sekce bude obsahovat kompletní harmonogram festivalových událostí včetně koncertů a řízených degustací.
 
 **Hlavní funkce:**
 
@@ -255,7 +257,7 @@ Sekce bude obsahovat kompletní harmonogram festivalových událostí včetně k
 
 - Možnost přidat událost do osobního programu.
 
-Detail události bude obsahovat její popis, datum, čas, místo konání a související účinkující. U degustací budou uvedeny také informace o příslušném regionu.
+Detail události bude sestaven z dostupných dat: názvu, typu, data, času, scény a souvisejících účinkujících. U degustací budou uvedeny také informace o příslušném regionu a párování vína se sýrem. Samostatné individuální textové popisy událostí zatím v `data.json` nejsou.
 
 #### 4.3.3 Účinkující
 
@@ -271,7 +273,7 @@ Sekce představí hudební skupiny a další osoby vystupující v programu fest
 
 - Odkazy na související události v programu.
 
-Profil účinkujícího bude obsahovat základní informace, jeho zaměření a přehled naplánovaných vystoupení nebo aktivit.
+Profil účinkujícího bude obsahovat jméno či název, hudební žánr, orientační cílovou skupinu a přehled souvisejících vystoupení nebo aktivit. Samostatné životopisné medailonky zatím datový soubor neobsahuje.
 
 #### 4.3.4 Degustace a regiony
 
@@ -289,17 +291,19 @@ Tato sekce bude představovat hlavní gastronomické zaměření festivalu. Náv
 
 - Přístup k detailu degustace a její programové položce.
 
-Jednotlivé regiony budou sloužit jako společný prvek propojující nabízená vína, sýry a související degustace.
+Jednotlivé regiony budou sloužit jako společný prvek propojující nabízená vína, sýry a související degustace. Datový soubor u každého z deseti regionů obsahuje stručnou charakteristiku a zemi původu; charakteristika představuje zejména jeho zastoupení ve festivalové nabídce.
 
 #### 4.3.5 Scény
 
 Sekce poskytne informace o dvou hlavních programových prostorech festivalu:
 
-- **Hlavní hudební scéna** – koncerty českých skupin a sólových interpretů od folku a rocku až po rap a hip-hop.
+- **Hlavní hudební scéna** – prostor v západní části modelového areálu pro koncerty skupin a sólových interpretů od folku a rocku až po rap a hip-hop.
 
-- **Degustační scéna** – řízené ochutnávky vín a sýrů doprovázené klidnější živou hudbou.
+- **Degustační scéna** – zastřešený prostor ve východní části modelového areálu pro komentované ochutnávky regionálních vín a sýrů doprovázené živou hudbou různých žánrů.
 
-Každá scéna bude mít vlastní přehled s popisem, umístěním a souvisejícími programovými událostmi.
+Model areálu zahrnuje rovněž deset tematických regionálních gastro stánků, odpočinkovou zónu v severní části a hlavní vstup s informačním stánkem v jižní části.
+
+Každá scéna bude mít vlastní přehled s popisem, modelovým umístěním v areálu a souvisejícími programovými událostmi. Hlavní scéna je situována do západní části a zastřešená degustační scéna do východní části fiktivního areálu Gurmánfest Park Mikulov. Toto rozmístění není skutečnou mapou Mikulova.
 
 #### 4.3.6 Praktické informace
 
@@ -309,13 +313,17 @@ Sekce bude návštěvníkům poskytovat organizační informace potřebné před
 
 - Místo konání festivalu.
 
-- Možnosti dopravy.
+- Možnosti dopravy do Mikulova a modelové návštěvnické parkoviště.
 
-- Základní pravidla festivalu.
+- Orientační plánek fiktivního areálu se dvěma scénami, gastro zónou, odpočinkovou zónou, informačním stánkem, toaletami a první pomocí.
 
-- Kontaktní informace.
+- Základní pravidla festivalu, bezbariérové trasy v návrhu a informace o věkové hranici alkoholických degustací.
 
-#### 4.3.7 Můj program
+- Modelové kontaktní informace pořadatele: Gurmánfest – fiktivní organizační tým, `info@gurmanfest.example` (nefunkční ukázková adresa).
+
+V `data.json` jsou připraveny informace o otevírací době (11:00–22:30), cenách fiktivních vstupenek (jednodenní, třídenní, studentské a dětské), ceně degustačního bloku, dopravě, přístupnosti a bezpečnosti. Alkoholické degustace jsou určeny pouze osobám od 18 let. Modelový areál Gurmánfest Park Mikulov zahrnuje dvě scény, deset regionálních gastro stánků, odpočinkovou zónu, informační stánek, sociální zařízení, první pomoc a fiktivní návštěvnické parkoviště. Tyto údaje nejsou potvrzeným popisem skutečné lokality.
+
+### 4.3.7 Můj program
 
 Sekce umožní návštěvníkům vytvořit vlastní přehled zajímavých festivalových událostí.
 
@@ -342,7 +350,7 @@ Doporučovač propojí regionální gastronomii s hudebním programem. Uživatel
 - Zobrazení odpovídající degustace a pozdějšího koncertu ve stejný den.
 - Odkaz na detail programu a možnost uložit vybrané události.
 
-Doporučení budou načítána ze souboru `data.json`, nikoliv generována náhodně. Degustace alkoholických vín je určena pouze návštěvníkům od 18 let; web uvede také informaci o možnosti nealkoholické alternativy.
+Doporučení budou načítána ze souboru `data.json`, nikoliv generována náhodně. Datový soubor obsahuje 20 připravených tipů propojujících regionální párování, degustaci a pozdější koncert ve stejný den. Uživatel bude moci vybírat podle nálady, hudebního žánru, typu nápoje a cílové skupiny. Alkoholické degustace jsou určeny pouze návštěvníkům od 18 let; nealkoholická možnost je informativní alternativou, nikoliv zaručenou konkrétní položkou nabídky.
 
 ### 4.4 Vztahy mezi jednotlivými sekcemi
 
@@ -507,6 +515,6 @@ Tyto čtyři scénáře budou sloužit jako základ pro návrh prototypu, implem
 
 Web bude vytvořen v HTML, CSS a JavaScriptu bez backendu a bez povinného sestavovacího procesu. Festivalová data se budou načítat z kořenového souboru `data.json`.
 
-Datový model obsahuje nejméně tři festivalové dny, dvě scény, 60 účinkujících a 60 programových položek. Odděleně eviduje regiony, vína, sýry a jejich vzájemná párování. Doporučovač využívá připravené kombinace, které odkazují na existující programové položky prostřednictvím identifikátorů.
+Datový model ve verzi `1.5.0` obsahuje tři festivalové dny (16.–18. 7. 2027), dvě scény, 60 účinkujících a 60 programových položek (30 koncertů a 30 degustací se živou hudbou). Odděleně eviduje 10 regionů, 10 vín, 10 sýrů a 10 regionálních párování. Každý region má stručnou charakteristiku a každá scéna popis; jejich modelové rozmístění je určeno v západní a východní části fiktivního areálu. Doporučovač využívá 20 připravených kombinací, které odkazují na existující programové položky prostřednictvím identifikátorů. Datový soubor obsahuje také podrobné fiktivní provozní informace, modelový areál, jeho zóny, návštěvnické parkoviště a ukázkový kontakt `info@gurmanfest.example`.
 
 Tři hlavní interaktivní funkce budou: filtrování programu, doporučovač „Co si dát k poslechu?“ a osobní program ukládaný do `localStorage`. Zobrazení bude navrženo mobile-first se sémantickým HTML, ovládáním z klávesnice a ohledem na WCAG 2.0 AA. Stránky budou obsahovat vhodné titulky, popisy a strukturované nadpisy pro vyhledávače.
