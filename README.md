@@ -47,7 +47,7 @@ Projekt bude postupně realizován podle milníků stanovených v zadání před
 
 | Milník | Hlavní výstup | Stav |
 |---|---|---|
-| Cvičení 2 | Projektová specifikace a datová základna | Rozpracováno |
+| Cvičení 2 | Projektová specifikace a datová základna | Hotovo |
 | Cvičení 3 | Interaktivní prototyp | Čeká |
 | Cvičení 4 | Implementace webu | Čeká |
 | Cvičení 5 | Review-ready verze | Čeká |
@@ -69,8 +69,8 @@ Přesné termíny odevzdání se řídí oficiálním zadáním a pokyny vyučuj
 - [x] Dokončení `data.json`.
 - [x] Kontrola konzistence dat.
 - [x] Týmová kontrola specifikace.
-- [ ] Příprava prezentace.
-- [ ] Odevzdání prvního milníku.
+- [x] Příprava prezentace.
+- [x] Odevzdání prvního milníku.
 
 ## 5. Struktura projektu
 
