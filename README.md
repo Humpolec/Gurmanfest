@@ -32,13 +32,12 @@ Webové stránky fiktivního gastronomického a hudebního festivalu zaměřené
 
 | Člen | Jméno a příjmení | GitHub | Odpovědnost |
 |---|---|---|---|
-| Člen 1 | Daniel Bartoníček | [@Humpolec](https://github.com/Humpolec) | Koordinace projektu |
-| Člen 2 | Filip Talián | [@TalosF](https://github.com/TalosF) | Týmová kontrola specifikace a konzistence dat |
-| Člen 3 | Vladislav Zahrabailau | [@Polearp](https://github.com/Polearp) | Týmová kontrola specifikace a konzistence dat |
-| Člen 4 | Josef Kovář | [@PePa24](https://github.com/PePa24)| Týmová kontrola specifikace a konzistence dat |
+| Člen 1 | Daniel Bartoníček | [@Humpolec](https://github.com/Humpolec) | Koordinace projektu, konzultace nápadů a připomínek, vše co vás napadne :d, rád pomůžu |
+| Člen 2 | Filip Talián | [@TalosF](https://github.com/TalosF) | Vytvoření funkčního prototypu společně s [@Polearp] |
+| Člen 3 | Vladislav Zahrabailau | [@Polearp](https://github.com/Polearp) | Vytvoření funkčního prototypu společně s [@TalosF]|
+| Člen 4 | Josef Kovář | [@PePa24](https://github.com/PePa24)| Důkladná spolupráce se všemi a závěrečné vytvoření dokumentace podle zadání v moodle|
 
 Konkrétní úkoly a odpovědnosti jednotlivých členů týmu budou rozdělovány podle aktuálních milníků prostřednictvím GitHub Issues.
-
 Za koordinaci projektu, kontrolu plnění milníků a organizaci týmové spolupráce odpovídá Daniel Bartoníček.
 
 ## 3. Harmonogram projektu
@@ -48,7 +47,7 @@ Projekt bude postupně realizován podle milníků stanovených v zadání před
 | Milník | Hlavní výstup | Stav |
 |---|---|---|
 | Cvičení 2 | Projektová specifikace a datová základna | Hotovo |
-| Cvičení 3 | Interaktivní prototyp | Čeká |
+| Cvičení 3 | Interaktivní prototyp | Rozpracováno |
 | Cvičení 4 | Implementace webu | Čeká |
 | Cvičení 5 | Review-ready verze | Čeká |
 | Cross-review | Oponentura a vyhodnocení | Čeká |
@@ -71,6 +70,18 @@ Přesné termíny odevzdání se řídí oficiálním zadáním a pokyny vyučuj
 - [x] Týmová kontrola specifikace.
 - [x] Příprava prezentace.
 - [x] Odevzdání prvního milníku.
+
+### Milník 2 - Projektová Specifikace 
+
+- [] Návrh vzhledu a struktury
+- [] Prototyp klíčových stránek
+- [] Tři interaktivní funkce 
+- [] Průchod dvěma scénáři
+- [] Testování
+- [] Dokumentace
+- [] Týmová konzultace nápadů a připomínek 
+- [] Příprava prezentace.
+- [] Odevzdání druhého milníku.
 
 ## 5. Struktura projektu
 
