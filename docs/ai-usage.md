@@ -218,6 +218,49 @@ AI slouží jako podpůrný nástroj při návrhu projektu, tvorbě dokumentace 
 
 **Zjištěné nedostatky:** AI v některých návrzích měnila původní identitu festivalu nebo příliš zasahovala do struktury dokumentu. Tyto návrhy byly opraveny podle původní specifikace.
 
+## AI-009 – Analýza zadání cvičení 3 a plán prototypu
+
+- **Období:** říjen 2026
+- **Autor:** koordinátor projektu   
+- **Nástroj:** ChatGPT (OpenAI)
+- **Účel:** Převést požadavky cvičení 3 na návrh struktury prototypu, scénářů a funkcí.
+- **Vstupní prompt / zadání:** „## Úkol do cvičení 3 ... Vytvořte návrh klíčových částí webu ...“ (úplné zadání vloženo do konverzace; do evidence lze připojit jeho přesné znění z kurzu).
+- **Výstup:** Doporučení postupovat mobile-first, navrhnout homepage, program, degustace a vstupenky; pro interaktivitu použít filtr programu, vyhledávání účinkujících a osobní program.
+- **Převzato / upraveno / odmítnuto:** Převzaty návrhy funkcí a struktury jako pracovní řešení. Nebyl převzat návrh, že by se samotné menu či navigační odkazy počítaly mezi tři požadované interaktivní funkce.
+- **Ověření:** Koncepčně porovnáno s textem zadání a README. Funkční ověření zatím neproběhlo.
+
+## AI-010 – Volba elegantního vizuálního směru
+
+- **Období:** říjen 2026
+- **Autor:** koordinátor projektu
+- **Nástroj:** ChatGPT (OpenAI)
+- **Účel:** Navrhnout barevnost, typografii a vizuální charakter festivalového webu.
+- **Přesné uživatelské zadání:** „Zvolil jsem elegantnější směr Gurmánfestu. Pokračuj kompletním návrhem úvodní stránky pro mobil a desktop.“
+- **Výstup:** Vínovo-krémová paleta, zlatý akcent, návrh textové hierarchie, homepage sekcí a responzivního rozložení.
+- **Převzato / upraveno / odmítnuto:** Elegantní směr a návrhová paleta přijaty jako pracovní design. Konkrétní údaje programu a cen nebyly schváleny jako obsahová fakta.
+- **Ověření:** Zhodnocena koncepční návaznost na zaměření festivalu; přístupnost barev, čitelnost a implementace se teprve otestují.
+
+## AI-011 – Vizuální mockup homepage
+
+- **Datum:** 27. 10. 2026
+- **Autor:** koordinátor projektu
+- **Nástroj:** OpenAI generování obrázků, v konverzaci ChatGPT
+- **Účel:** Vytvořit společnou vizuální předlohu mobilní a desktopové homepage.
+- **Přesné uživatelské zadání:** „yes, udělej to tak“ (navazuje na nabídku vytvořit vizuální mockup homepage pro mobil a desktop).
+- **Výstup:** `prototype/mockup-homepage.png` a doprovodný textový wireframe `prototype/wireframe.md`.
+- **Převzato / upraveno / odmítnuto:** Převzata obrazová kompozice jako inspirace pro tým. Ilustrační kapely, data v kartách, ceny a textové detaily nejsou závazné a musí být nahrazeny údaji ze specifikace / JSON.
+- **Ověření:** Prohlédnut vizuální výstup a porovnán zamýšlený obsah sekcí se zadáním. Neproběhla validace HTML, test použitelnosti ani ověření všech položek vůči `data.json`.
+
+## AI-012 – Příprava podkladů pro Git
+
+- **Datum:** 27. 10. 2026
+- **Autor:** koordinátor projektu
+- **Nástroj:** ChatGPT (OpenAI)
+- **Účel:** Sepsat textový wireframe a strukturované záznamy k druhému milníku bez přepsání historie projektu.
+- **Přesné uživatelské zadání:** „zatím bych vše zaevidoval a naházel dosavadní věci do gitu. Tuším že to bude ve složce prototyp ten wireframe a mockup a potom ai log + rozhodnutí“
+- **Výstup:** Návrhy souborů v `prototype/` a doplňky evidence v `docs/`.
+- **Ověření:** Kontrola očekávaných cest podle README; před commitem musí tým ověřit kompatibilitu s existujícími dokumenty v repozitáři.
+
 ## 3. Souhrn dosavadní práce
 
 | Oblast | Dosavadní výsledek |
@@ -232,18 +275,31 @@ AI slouží jako podpůrný nástroj při návrhu projektu, tvorbě dokumentace 
 | Doporučovač | Připraveno 20 doporučení pro funkci „Co si dát k poslechu?“ |
 | Aktualizace specifikace | Doplněna čtvrtá cílová skupina, čtvrtý uživatelský scénář a technické řešení |
 | Kontrola konzistence | Sjednoceny údaje a návaznosti mezi `project-specification.md` a `data.json` |
-
+| Analýza druhého milníku | Vyhodnoceny požadavky na prototyp, mobile-first a interaktivní funkce |
+| Vizuální identita | Navržen elegantní gastronomický styl, barevná paleta a typografie |
+| Wireframe | Navržena struktura úvodní stránky pro mobilní a desktopové zobrazení |
+| Mockup | Vygenerován grafický návrh úvodní stránky pomocí AI |
+| Interaktivní funkce | Navrženo filtrování programu, vyhledávání účinkujících a osobní program |
+| Dokumentace prototypu | Připraveny podklady pro `prototype/README.md` a `prototype/wireframe.md` |
 
 ## 4. Zhodnocení využití AI
 
-AI dosud pomohla zejména s organizací projektového zadání, tvorbou strukturované dokumentace, formátováním Markdownu a řešením technických problémů.
+AI dosud pomohla zejména s organizací projektového zadání, tvorbou strukturované dokumentace, návrhem datové základny, formátováním Markdownu a řešením technických problémů.
 
-Největším přínosem byla rychlejší příprava podkladů a možnost průběžně konzultovat návrhová i technická rozhodnutí.
+V rámci druhého milníku byla AI využita také při návrhu vizuální identity webu, informační hierarchie, responzivního rozložení a přípravě wireframu a grafického mockupu úvodní stránky.
 
-Zároveň se ukázalo, že AI výstupy vyžadují kontrolu. Během práce bylo nutné opravovat formátování dokumentů, doplňovat jejich obsah a ověřovat správnost navrhovaných postupů.
+Největším přínosem byla rychlejší příprava podkladů, sjednocení návrhových principů a možnost průběžně konzultovat vizuální, obsahová i technická rozhodnutí.
 
-AI proto slouží jako podpůrný nástroj, nikoliv jako náhrada vlastního rozhodování a ověřování výsledků.
+Zároveň se ukázalo, že AI výstupy vyžadují kontrolu. Během práce bylo nutné opravovat formátování dokumentů, doplňovat jejich obsah a ověřovat správnost navrhovaných postupů. Grafický mockup navíc obsahuje ilustrativní údaje, které bude nutné sjednotit s projektovou specifikací a datovým souborem.
+
+AI generované obrázky slouží jako vizuální podklad pro návrh. Jejich případné použití ve finálním webu bude posouzeno samostatně.
+
+AI proto slouží jako podpůrný nástroj, nikoliv jako náhrada vlastního rozhodování, týmové spolupráce a ověřování výsledků.
 
 ## 5. Další evidence
 
-Následující významná použití AI budou průběžně zaznamenávána stejným způsobem, zejména při návrhu prototypu, implementaci webu, testování a následných úpravách projektu.
+Následující významná použití AI budou průběžně zaznamenávána stejným způsobem, zejména při tvorbě dalších částí prototypu, implementaci HTML, CSS a JavaScriptu, realizaci interaktivních funkcí, testování responzivity a uživatelských scénářů.
+
+Součástí evidence bude popis účelu použití AI, získaných výstupů, provedených úprav a způsobu jejich ověření.
+
+Průběžně bude sledována také návaznost implementace na projektovou specifikaci a datový soubor `data.json`.

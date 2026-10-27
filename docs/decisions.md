@@ -80,6 +80,38 @@
 - **Důvod:** Praktické informace doplňují věrohodný obsah školního návrhu webu.
 - **Dopad:** Web musí zřetelně označovat fiktivní charakter akce; adresa `.example` slouží jen jako ukázka a není skutečným funkčním kontaktem.
 
+## DEC-013 – Vizuální styl Gurmánfestu
+
+- **Datum:** 27. 10. 2026 (datum evidence; vlastní volba vznikla v rámci přípravy návrhu)
+- **Stav:** pracovní rozhodnutí
+- **Rozhodnutí:** Preferovat elegantní gastro-festivalový vzhled kombinující vínovou `#63263F`, krémovou `#F7F1E7`, zlatý akcent `#E9B75D` a tmavé texty.
+- **Důvod:** Design má komunikovat vinařství a regionální gastronomii, ale zároveň nabídnout prostor české hudební části a oslovit širší cílové skupiny.
+- **Dopad:** Společný základ vzhledu všech stránek; při implementaci ověřit kontrast, čitelnost, konzistenci a použitelnost.
+
+## DEC-014 – Mobile-first a jedna vizuální předloha pro tým
+
+- **Datum:** 27. 10. 2026
+- **Stav:** pracovní rozhodnutí
+- **Rozhodnutí:** Vytvořit společný mobilní a desktopový mockup homepage a textový wireframe. Mobil je primární návrhová varianta.
+- **Důvod:** Návaznost na zadání cvičení 3 a prevence nekonzistentních samostatných řešení jednotlivými členy týmu.
+- **Dopad:** Podklady ukládat do `prototype/`, implementaci řešit následně v souladu s plánovanou strukturou projektu.
+
+## DEC-015 – Interaktivita prototypu
+
+- **Datum:** 27. 10. 2026
+- **Stav:** navrženo, dosud neimplementováno
+- **Rozhodnutí:** Prioritní funkce: filtr programu podle dne/scény/typu, vyhledávání účinkujících a osobní program.
+- **Důvod:** Odpovídají potřebám návštěvníka najít relevantní akce a naplánovat návštěvu.
+- **Dopad:** Budoucí prototyp musí nabídnout alespoň dvě průchozí klíčové uživatelské cesty. Interaktivita nebyla zatím technicky ani uživatelsky ověřena.
+
+## DEC-016 – Oddělení návrhového obsahu od festivalových dat
+
+- **Datum:** 27. 10. 2026
+- **Stav:** přijato jako pravidlo zpracování návrhu
+- **Rozhodnutí:** Jména účinkujících, termíny vystoupení, názvy degustací a ceny v obrazovém mockupu chápat pouze jako ilustrační.
+- **Důvod:** Generovaný vizuál nelze považovat za zdroj pravdivých festivalových dat.
+- **Dopad:** Před implementací a odevzdáním sjednotit zobrazená fakta s `data.json` a `project-specification.md`; neuvádět ilustrační částky jako schválené ceny.
+
 ## Pravidla další evidence
 
 Při významné změně konceptu, datového modelu, navigace nebo funkce přidat nový záznam s ID `DEC-013` a dále. Původní rozhodnutí nemažte: při jeho nahrazení změňte stav na **Nahrazeno** a uveďte ID nového rozhodnutí.
