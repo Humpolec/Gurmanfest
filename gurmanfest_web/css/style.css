@@ -1,0 +1,1294 @@
+/* ZAKLAD */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 60px;
+}
+
+body {
+  margin: 0;
+  background: #f7f1e8;
+  color: #2b1d17;
+  font-family: "Source Sans 3", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+h1, h2, h3 {
+  margin: 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+
+/* TLACITKA */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 20px;
+  border: 1.5px solid transparent;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-small {
+  min-height: 40px;
+  padding: 7px 16px;
+  font-size: 14px;
+}
+
+.btn-red {
+  background: #7a1f2b;
+  color: white;
+}
+
+.btn-red:hover {
+  background: #5e1621;
+}
+
+.btn-white-border {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: white;
+  color: white;
+}
+
+.btn-white-border:hover {
+  background: white;
+  color: #2b1d17;
+}
+
+.btn-light {
+  background: #fffaf3;
+  color: #2b1d17;
+}
+
+.btn-light:hover {
+  background: white;
+}
+
+.btn-border {
+  background: transparent;
+  border-color: #7a1f2b;
+  color: #7a1f2b;
+}
+
+.btn-border:hover {
+  background: #7a1f2b;
+  color: white;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.buttons.center {
+  justify-content: center;
+}
+
+
+/* FOTKY */
+/* PLACEHOLDER – barvy misto fotek */
+
+.grad-wine {
+  background: radial-gradient(circle at 70% 30%, rgba(255, 210, 150, 0.45), transparent 55%),
+              linear-gradient(135deg, #4d111b, #93393a 55%, #d79a58);
+}
+
+.grad-cheese {
+  background: radial-gradient(circle at 30% 35%, rgba(255, 240, 190, 0.5), transparent 55%),
+              linear-gradient(135deg, #7a4d1e, #c9953f 55%, #efd08a);
+}
+
+.grad-craft {
+  background: radial-gradient(circle at 65% 40%, rgba(255, 236, 200, 0.45), transparent 55%),
+              linear-gradient(135deg, #5c3d24, #b48a58 55%, #e6cfa3);
+}
+
+.grad-landscape {
+  background: linear-gradient(180deg, #a9bfcd, #e2c88f 42%, #7c8f4a 58%, #3d5a2c);
+}
+
+.grad-concert {
+  background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(255, 110, 200, 0.55), transparent 70%),
+              radial-gradient(circle at 15% 20%, rgba(120, 140, 255, 0.45), transparent 40%),
+              linear-gradient(170deg, #34175a, #5e1d55 50%, #140b1f);
+}
+
+.grad-concert2 {
+  background: radial-gradient(ellipse 60% 50% at 35% 0%, rgba(255, 150, 70, 0.6), transparent 70%),
+              radial-gradient(circle at 85% 15%, rgba(255, 70, 90, 0.45), transparent 40%),
+              linear-gradient(170deg, #4a1418, #2b0e12 55%, #120809);
+}
+
+.grad-concert3 {
+  background: radial-gradient(ellipse 60% 50% at 60% 0%, rgba(140, 180, 255, 0.6), transparent 70%),
+              radial-gradient(circle at 15% 15%, rgba(200, 120, 255, 0.4), transparent 40%),
+              linear-gradient(170deg, #1a2a5e, #13183a 55%, #0a0c18);
+}
+
+.foto {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* HLAVICKA */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: #fffaf3;
+  border-bottom: 1px solid #e4d6c1;
+}
+
+.header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 60px;
+}
+
+.logo {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 28px;
+  font-weight: 600;
+  font-variant: small-caps;
+  color: #7a1f2b;
+  text-decoration: none;
+}
+
+.burger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: none;
+  border-radius: 4px;
+  background: none;
+  cursor: pointer;
+}
+
+.burger:hover {
+  background: #efe5d6;
+}
+
+.burger img {
+  width: 22px;
+}
+
+.burger-close {
+  display: none;
+}
+
+.header.open .burger-open {
+  display: none;
+}
+
+.header.open .burger-close {
+  display: block;
+}
+
+
+/* MENU NA MOBILU */
+
+.menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: calc(100vh - 60px);
+  overflow-y: auto;
+  padding: 8px 16px 20px;
+  background: #fffaf3;
+  border-bottom: 1px solid #e4d6c1;
+  box-shadow: 0 12px 24px rgba(43, 29, 23, 0.12);
+}
+
+.header.open .menu {
+  display: block;
+}
+
+.menu li a {
+  display: block;
+  padding: 12px 0;
+  border-bottom: 1px solid #e4d6c1;
+  font-size: 17px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.menu li a:hover,
+.menu li a.active {
+  color: #7a1f2b;
+}
+
+.brzy {
+  display: inline-block;
+  margin-left: 4px;
+  padding: 1px 6px;
+  border-radius: 10px;
+  background: #efe5d6;
+  color: #6b5a4e;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+
+/* HERO */
+
+/* PLACEHOLDER – hero */
+.hero {
+  color: #fbf4ea;
+  background: linear-gradient(180deg, rgba(20, 12, 10, 0.35), rgba(20, 12, 10, 0.78)),
+              url(../images/hero.jpg) center / cover no-repeat,
+              radial-gradient(ellipse 45% 55% at 78% 38%, rgba(246, 178, 98, 0.55), transparent 70%),
+              radial-gradient(ellipse 40% 35% at 62% 95%, rgba(150, 40, 45, 0.55), transparent 70%),
+              linear-gradient(165deg, #4a3322, #2a1c14 55%, #1a110d);
+}
+
+.hero-text {
+  padding-top: 48px;
+  padding-bottom: 36px;
+}
+
+.hero h1 {
+  font-size: 36px;
+}
+
+.hero-perex {
+  max-width: 34ch;
+  margin-top: 14px;
+  color: rgba(251, 244, 234, 0.92);
+}
+
+.hero-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 20px;
+  margin: 16px 0 24px;
+  font-size: 14px;
+}
+
+.hero-info li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hero-info img {
+  width: 17px;
+}
+
+.hero .btn {
+  flex-grow: 1;
+}
+
+
+/* NADPIS PODSTRANKY */
+
+.page-top {
+  padding: 28px 0;
+  background: #efe5d6;
+  border-bottom: 1px solid #e4d6c1;
+}
+
+.page-top h1 {
+  font-size: 30px;
+}
+
+.page-top p {
+  max-width: 60ch;
+  margin-top: 8px;
+  color: #6b5a4e;
+}
+
+
+/* SEKCE */
+
+.section {
+  padding: 28px 0;
+}
+
+.beige {
+  background: #efe5d6;
+}
+
+.title {
+  margin-bottom: 16px;
+  font-size: 22px;
+}
+
+.section-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0 16px;
+  margin-bottom: 12px;
+}
+
+.section-top .title {
+  margin-bottom: 0;
+}
+
+.more {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 44px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #7a1f2b;
+  text-decoration: none;
+}
+
+.more:hover {
+  text-decoration: underline;
+}
+
+.more img {
+  width: 14px;
+}
+
+.poznamka {
+  margin-top: 16px;
+  font-size: 14px;
+  color: #6b5a4e;
+}
+
+/* ZPRAVA */
+.zprava {
+  padding: 16px;
+  border: 1px dashed #c9b79c;
+  border-radius: 8px;
+  background: #fffaf3;
+  color: #6b5a4e;
+}
+
+.zprava a {
+  color: #7a1f2b;
+  font-weight: 600;
+}
+
+
+/* CO VAS CEKA */
+
+.features {
+  display: grid;
+  gap: 16px;
+}
+
+.feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.feature-icon {
+  width: 32px;
+  flex-shrink: 0;
+}
+
+.feature h3 {
+  font-family: "Source Sans 3", Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.feature p {
+  margin-top: 2px;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #6b5a4e;
+}
+
+.feature a {
+  color: #7a1f2b;
+  font-weight: 600;
+}
+
+
+/* VYBRANE AKCE */
+
+.events {
+  display: grid;
+  gap: 12px;
+}
+
+.event {
+  position: relative;
+  display: grid;
+  grid-template-columns: 104px 1fr;
+  overflow: hidden;
+  background: #fffaf3;
+  border: 1px solid #e4d6c1;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(43, 29, 23, 0.08);
+}
+
+.event-photo {
+  position: relative;
+  min-height: 110px;
+}
+
+.event-text {
+  position: relative;
+  padding: 11px 44px 13px 14px;
+}
+
+.event-text h3 {
+  margin: 6px 0 5px;
+  font-size: 17px;
+}
+
+.label {
+  display: inline-block;
+  padding: 2px 7px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: white;
+}
+
+.label-red {
+  background: #7a1f2b;
+}
+
+.label-gold {
+  background: #c99a3c;
+  color: #2b1d17;
+}
+
+.event-info {
+  font-size: 13px;
+  color: #6b5a4e;
+}
+
+.event-info li {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.event-info img {
+  width: 13px;
+  margin-top: 3px;
+}
+
+.heart {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: none;
+  cursor: pointer;
+}
+
+.heart:hover {
+  background: #efe5d6;
+}
+
+.heart img {
+  width: 19px;
+}
+
+
+/* DLAZDICE */
+
+.tiles {
+  display: grid;
+  gap: 12px;
+}
+
+.tile {
+  position: relative;
+  display: block;
+  aspect-ratio: 2 / 1;
+  border-radius: 6px;
+  overflow: hidden;
+  color: white;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.tile:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(43, 29, 23, 0.15);
+}
+
+.tile-text {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  padding: 14px;
+  background: linear-gradient(180deg, transparent 25%, rgba(15, 8, 6, 0.85));
+}
+
+.tile-text strong {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.tile-text span {
+  font-size: 14px;
+  opacity: 0.92;
+}
+
+.artist {
+  aspect-ratio: 2.4 / 1;
+}
+
+
+/* VSTUPNE */
+
+.tickets {
+  display: grid;
+  gap: 12px;
+}
+
+.ticket {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px;
+  background: #fffaf3;
+  border: 1px solid #e4d6c1;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(43, 29, 23, 0.08);
+}
+
+.ticket-icon {
+  width: 32px;
+  flex-shrink: 0;
+}
+
+.ticket h3 {
+  font-family: "Source Sans 3", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.price {
+  margin-top: 2px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #7a1f2b;
+}
+
+.ticket-desc {
+  margin-top: 4px;
+  font-size: 14px;
+  color: #6b5a4e;
+}
+
+
+/* PRAKTICKE INFO */
+
+.info {
+  display: grid;
+  gap: 18px;
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.info-icon {
+  width: 30px;
+  flex-shrink: 0;
+}
+
+.info-item h3 {
+  font-family: "Source Sans 3", Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.info-item p {
+  margin-top: 2px;
+  font-size: 14px;
+  color: #6b5a4e;
+}
+
+.info-item a {
+  color: #7a1f2b;
+  font-weight: 600;
+}
+
+
+/* ZAVER */
+
+/* PLACEHOLDER – mikulov */
+.final {
+  color: #fbf4ea;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(20, 12, 10, 0.45), rgba(20, 12, 10, 0.55)),
+              url(../images/mikulov.jpg) center 45% / cover no-repeat,
+              linear-gradient(180deg, #2a1610, #5a2a18 55%, #b76a33);
+}
+
+.final .container {
+  padding-top: 24px;
+  padding-bottom: 28px;
+}
+
+.final h2 {
+  max-width: 30ch;
+  margin: 0 auto 16px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+
+/* FILTR */
+
+.filtr {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  background: #fffaf3;
+  border: 1px solid #e4d6c1;
+  border-radius: 8px;
+}
+
+.filtr label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.filtr select,
+.filtr input {
+  width: 100%;
+  min-height: 44px;
+  padding: 8px 10px;
+  border: 1px solid #c9b79c;
+  border-radius: 4px;
+  background: white;
+  color: #2b1d17;
+  font-family: inherit;
+  font-size: 16px;
+}
+
+.filtr select:focus,
+.filtr input:focus {
+  outline: 2px solid #7a1f2b;
+  outline-offset: 1px;
+}
+
+.filtr-tlacitka {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.pocet {
+  margin: 16px 0 4px;
+  font-weight: 600;
+}
+
+
+/* SEZNAM AKCI */
+
+.den-nadpis {
+  margin: 24px 0 12px;
+  font-size: 22px;
+}
+
+.den-nadpis span {
+  display: block;
+  font-family: "Source Sans 3", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #6b5a4e;
+}
+
+.akce-seznam {
+  display: grid;
+  gap: 10px;
+}
+
+.akce {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  padding: 14px;
+  background: #fffaf3;
+  border: 1px solid #e4d6c1;
+  border-left: 4px solid #7a1f2b;
+  border-radius: 6px;
+}
+
+.akce.degustace {
+  border-left-color: #c99a3c;
+}
+
+.akce-cas {
+  width: 64px;
+  flex-shrink: 0;
+}
+
+.akce-cas strong {
+  display: block;
+  font-size: 18px;
+}
+
+.akce-cas span {
+  font-size: 13px;
+  color: #6b5a4e;
+}
+
+.akce-text {
+  flex: 1 1 calc(100% - 78px);
+  min-width: 0;
+}
+
+.akce-text h3 {
+  margin: 6px 0 4px;
+  font-size: 18px;
+}
+
+.akce-text p {
+  font-size: 14px;
+  color: #6b5a4e;
+}
+
+.akce .heart-text,
+.akce .odebrat {
+  align-self: flex-start;
+  margin-left: 78px;
+}
+
+/* SRDICKO S TEXTEM */
+.heart-text {
+  position: static;
+  width: auto;
+  height: auto;
+  min-height: 40px;
+  gap: 6px;
+  padding: 6px 14px;
+  border: 1px solid #e4d6c1;
+  border-radius: 20px;
+  background: white;
+  color: #7a1f2b;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.heart-text img {
+  width: 16px;
+}
+
+.odebrat {
+  min-height: 40px;
+  padding: 6px 14px;
+  border: 1px solid #7a1f2b;
+  border-radius: 20px;
+  background: white;
+  color: #7a1f2b;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.odebrat:hover {
+  background: #7a1f2b;
+  color: white;
+}
+
+
+/* DOPORUCOVAC */
+
+.tipy {
+  display: grid;
+  gap: 16px;
+}
+
+.tip {
+  padding: 16px;
+  background: #fffaf3;
+  border: 1px solid #e4d6c1;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(43, 29, 23, 0.08);
+}
+
+.tip h3 {
+  font-size: 21px;
+}
+
+.tip-proc {
+  margin: 6px 0 12px;
+  color: #6b5a4e;
+}
+
+.tip-parovani {
+  margin-bottom: 12px;
+  padding: 12px;
+  border-radius: 6px;
+  background: #efe5d6;
+  font-size: 15px;
+}
+
+.tip-parovani strong {
+  display: block;
+}
+
+.upozorneni {
+  margin-top: 12px;
+  padding: 10px 14px;
+  border-left: 4px solid #c99a3c;
+  background: #fffaf3;
+  font-size: 14px;
+}
+
+
+/* PATICKA */
+
+.footer {
+  background: #fffaf3;
+  border-top: 1px solid #e4d6c1;
+}
+
+.footer .container {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 12px 16px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.footer-menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  grid-column: 1 / 3;
+}
+
+.footer-menu a {
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.footer-menu a:hover {
+  color: #7a1f2b;
+  text-decoration: underline;
+}
+
+.social {
+  display: flex;
+  gap: 4px;
+}
+
+.social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.social a:hover {
+  background: #efe5d6;
+}
+
+.social img {
+  width: 18px;
+}
+
+.copyright {
+  grid-column: 1 / 3;
+  font-size: 12px;
+  color: #6b5a4e;
+}
+
+
+/* TABLET – od 768px */
+
+@media (min-width: 768px) {
+
+  .container {
+    padding: 0 32px;
+  }
+
+  .menu {
+    padding: 8px 32px 20px;
+  }
+
+  /* HERO */
+  /* PLACEHOLDER – hero */
+  .hero {
+    background: linear-gradient(90deg, rgba(20, 12, 10, 0.88), rgba(20, 12, 10, 0.6) 45%, rgba(20, 12, 10, 0.05) 80%),
+                url(../images/hero.jpg) center / cover no-repeat,
+                radial-gradient(ellipse 45% 55% at 78% 38%, rgba(246, 178, 98, 0.55), transparent 70%),
+                radial-gradient(ellipse 40% 35% at 62% 95%, rgba(150, 40, 45, 0.55), transparent 70%),
+                linear-gradient(165deg, #4a3322, #2a1c14 55%, #1a110d);
+  }
+
+  .hero-text {
+    padding-top: 72px;
+    padding-bottom: 64px;
+  }
+
+  .hero h1 {
+    font-size: 68px;
+  }
+
+  .hero-perex {
+    font-size: 19px;
+  }
+
+  .hero-info {
+    font-size: 16px;
+  }
+
+  .hero .btn {
+    flex-grow: 0;
+    min-width: 180px;
+  }
+
+  .page-top {
+    padding: 40px 0;
+  }
+
+  .page-top h1 {
+    font-size: 40px;
+  }
+
+  .section {
+    padding: 40px 0;
+  }
+
+  .title {
+    font-size: 26px;
+  }
+
+  /* CO VAS CEKA */
+  .features {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .feature-icon {
+    width: 38px;
+  }
+
+  /* VYBRANE AKCE */
+  .events {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .event {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .event-photo {
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+  }
+
+  .event-text {
+    padding: 0 44px 16px 16px;
+  }
+
+  .event-text .label {
+    position: relative;
+    margin-top: -14px;
+  }
+
+  .event .heart {
+    top: 16px;
+  }
+
+  /* DLAZDICE */
+  .tiles {
+    gap: 16px;
+  }
+
+  .tiles-4 {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .tiles-4 .tile {
+    aspect-ratio: 16 / 9;
+  }
+
+  .tile-text {
+    padding: 16px;
+  }
+
+  .tiles-3 {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .artist {
+    aspect-ratio: 4 / 3;
+  }
+
+  .artist .tile-text strong {
+    font-size: 24px;
+  }
+
+  /* VSTUPNE */
+  .tickets {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  /* PRAKTICKE INFO */
+  .info {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  /* FILTR */
+  .filtr {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    padding: 20px;
+  }
+
+  .akce-seznam {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .tipy {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .tip .akce-seznam {
+    grid-template-columns: 1fr;
+  }
+
+  /* ZAVER A PATICKA */
+  .final .container {
+    padding-top: 32px;
+    padding-bottom: 36px;
+  }
+
+  .final h2 {
+    max-width: none;
+    font-size: 24px;
+  }
+
+  .footer .container {
+    grid-template-columns: auto 1fr auto;
+  }
+
+  .footer-menu {
+    grid-column: auto;
+    justify-content: center;
+  }
+}
+
+
+/* POCITAC – od 1024px */
+
+@media (min-width: 1024px) {
+
+  .logo {
+    font-size: 32px;
+  }
+
+  .hero-text {
+    padding-top: 88px;
+    padding-bottom: 80px;
+  }
+
+  .features {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 0;
+  }
+
+  .feature {
+    padding: 0 20px;
+    border-left: 1px solid #e4d6c1;
+  }
+
+  .feature:first-child {
+    padding-left: 0;
+    border-left: none;
+  }
+
+  .events {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .tiles-4 {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .tiles-4 .tile {
+    aspect-ratio: 4 / 3;
+  }
+
+  .artist {
+    aspect-ratio: 2.4 / 1;
+  }
+
+  .tickets {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .ticket {
+    flex-direction: column;
+  }
+
+  .info {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .filtr {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    align-items: end;
+  }
+
+  .filtr-tlacitka {
+    grid-column: 1 / -1;
+  }
+
+  .final h2 {
+    font-size: 26px;
+  }
+}
+
+
+/* SIROKY POCITAC – od 1200px */
+
+@media (min-width: 1200px) {
+
+  html {
+    scroll-padding-top: 64px;
+  }
+
+  .header .container {
+    min-height: 64px;
+  }
+
+  .burger {
+    display: none;
+  }
+
+  .menu {
+    display: block;
+    position: static;
+    max-height: none;
+    overflow: visible;
+    margin-left: 32px;
+    margin-right: auto;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    background: none;
+  }
+
+  .menu ul {
+    display: flex;
+    gap: 20px;
+  }
+
+  .menu li a {
+    padding: 8px 0;
+    border-bottom: 2px solid transparent;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  .menu li a:hover,
+  .menu li a.active {
+    color: #2b1d17;
+    border-bottom-color: #7a1f2b;
+  }
+}
+
+
+/* VELKE MONITORY */
+
+@media (min-width: 1800px) {
+  html {
+    zoom: 1.25;
+  }
+}
+
+@media (min-width: 2400px) {
+  html {
+    zoom: 1.5;
+  }
+}
+
+@media (min-width: 3200px) {
+  html {
+    zoom: 2;
+  }
+}
