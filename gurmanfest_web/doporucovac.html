@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Co si dát k poslechu? – Gurmánfest 2027</title>
+  <meta name="description" content="Doporučovač Gurmánfestu: podle nálady, žánru a nápoje vybere víno a sýr ze stejného regionu, degustaci a koncert.">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- HLAVICKA -->
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="logo">Gurmánfest</a>
+
+      <nav class="menu">
+        <ul>
+          <li><a href="index.html">Úvod</a></li>
+          <li><a href="program.html">Program</a></li>
+          <li><a href="pripravujeme.html">Účinkující <span class="brzy">brzy</span></a></li>
+          <li><a href="pripravujeme.html">Degustace a regiony <span class="brzy">brzy</span></a></li>
+          <li><a href="pripravujeme.html">Scény <span class="brzy">brzy</span></a></li>
+          <li><a href="index.html#info">Praktické info</a></li>
+          <li><a href="muj-program.html">Můj program</a></li>
+          <li><a href="doporucovac.html" class="active">Co si dát k poslechu?</a></li>
+        </ul>
+      </nav>
+
+      <button class="burger" aria-label="Menu">
+        <img class="burger-open" src="images/icons/menu.svg" alt="">
+        <img class="burger-close" src="images/icons/close.svg" alt="">
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- NADPIS -->
+    <section class="page-top">
+      <div class="container">
+        <h1>Co si dát k poslechu?</h1>
+        <p>Vyber si, na co máš chuť a náladu. Doporučíme víno a sýr ze stejného regionu, degustaci s živou hudbou a koncert ve stejný den.</p>
+      </div>
+    </section>
+
+    <!-- VYBER -->
+    <section class="section">
+      <div class="container">
+        <form class="filtr" id="doporucovac">
+          <div>
+            <label for="volba-nalada">Nálada</label>
+            <select id="volba-nalada">
+              <option value="">Nezáleží</option>
+            </select>
+          </div>
+          <div>
+            <label for="volba-zanr">Hudební žánr</label>
+            <select id="volba-zanr">
+              <option value="">Nezáleží</option>
+            </select>
+          </div>
+          <div>
+            <label for="volba-napoj">Co piješ</label>
+            <select id="volba-napoj">
+              <option value="">Nezáleží</option>
+            </select>
+          </div>
+          <div>
+            <label for="volba-skupina">Pro koho</label>
+            <select id="volba-skupina">
+              <option value="">Nezáleží</option>
+            </select>
+          </div>
+          <div class="filtr-tlacitka">
+            <button type="submit" class="btn btn-red btn-small">Doporučit</button>
+            <button type="reset" class="btn btn-border btn-small">Zrušit výběr</button>
+          </div>
+        </form>
+
+        <p class="upozorneni" id="upozorneni"></p>
+        <p class="pocet" id="pocet" aria-live="polite"></p>
+
+        <div class="tipy" id="vysledky">
+          <p class="zprava">Načítám tipy…</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- PATICKA -->
+  <footer class="footer">
+    <div class="container">
+      <a href="index.html" class="logo">Gurmánfest</a>
+      <ul class="footer-menu">
+        <li><a href="program.html">Program</a></li>
+        <li><a href="muj-program.html">Můj program</a></li>
+        <li><a href="doporucovac.html">Co si dát k poslechu?</a></li>
+        <li><a href="index.html#info">Praktické info</a></li>
+        <li><a href="mailto:info@gurmanfest.example">Kontakt</a></li>
+      </ul>
+      <ul class="social">
+        <li><a href="#" aria-label="Instagram (plánovaný profil)" title="Plánovaný profil"><img src="images/icons/instagram.svg" alt=""></a></li>
+        <li><a href="#" aria-label="Facebook (plánovaný profil)" title="Plánovaný profil"><img src="images/icons/facebook.svg" alt=""></a></li>
+      </ul>
+      <p class="copyright">© 2027 Gurmánfest – fiktivní školní projekt. Údaje o areálu, programu a cenách jsou modelové.</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script src="js/doporucovac.js"></script>
+</body>
+</html>
