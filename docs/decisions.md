@@ -112,6 +112,59 @@
 - **Důvod:** Generovaný vizuál nelze považovat za zdroj pravdivých festivalových dat.
 - **Dopad:** Před implementací a odevzdáním sjednotit zobrazená fakta s `data.json` a `project-specification.md`; neuvádět ilustrační částky jako schválené ceny.
 
+## Rozhodnutí implementačního týmu – převzato z jeho podkladů
+
+> Následující položky DEC-017 až DEC-023 byly redakčně převedeny z dokumentu `decisions.md` dodaného implementačním týmem. Jde o jeho popis učiněných technických voleb, nikoli o osobní rozhodnutí koordinátora. Původní podklad neuvádí přesné datum ani jména jednotlivých autorů rozhodnutí. Koordinátor odpovídá pouze za sjednocení evidence. Technické výroky, které vyžadují ověření, jsou takto označeny.
+
+### DEC-017 – Implementace bez frameworků
+- **Původ:** implementační tým (pracovní `decisions.md`)
+- **Stav:** implementováno dle vyjádření týmu
+- **Rozhodnutí:** Vytvořit HTML stránky, styly a interakce v čistém HTML, CSS a JavaScriptu bez frameworků a povinného build procesu. Opakovanou hlavičku a patičku tým vložil do jednotlivých HTML souborů.
+- **Důvod:** Jednoduchá struktura odpovídá technickému zadání a nevyžaduje sestavovací nástroje.
+- **Dopad:** Opakované prvky je třeba při změnách upravovat na více stránkách. Pro plnou funkčnost načítání JSON přes `fetch()` nelze bez ověření tvrdit, že vše funguje dvojklikem bez serveru; běžná varianta vyžaduje HTTP.
+
+### DEC-018 – Dynamické načítání dat
+- **Původ:** implementační tým (pracovní `decisions.md`)
+- **Stav:** implementováno dle vyjádření týmu
+- **Rozhodnutí:** Festivalové údaje o programu a účinkujících vykreslovat dynamicky z `data.json` načítaného přes `fetch()`; v HTML ponechat statické texty a strukturu.
+- **Důvod:** Omezit ruční duplicity dat mezi jednotlivými stránkami.
+- **Dopad:** Změny dat mají být prováděny v centrálním JSON. Po sjednocení adresářů bude nutné ověřit relativní cesty a odstranit případné nadbytečné kopie souboru.
+
+### DEC-019 – Rozsah funkčních stránek a odložených částí
+- **Původ:** implementační tým (pracovní `decisions.md`)
+- **Stav:** popis rozpracovaného prototypu
+- **Rozhodnutí:** V této fázi zprovoznit Úvod, Program s filtrem, Můj program a Doporučovač. Zatím nedokončené samostatné sekce Účinkující, Degustace a regiony a Scény směrovat na stránku `pripravujeme.html` a označovat „BRZY“.
+- **Důvod:** Upřednostnit funkční jádro prototypu a hlavní interaktivní scénáře.
+- **Dopad:** Detaily interpretů a regionů zůstávají otevřené pro další milník. Nejde o doklad dokončení všech funkcí finálního webu.
+
+### DEC-020 – Responzivní uspořádání a navigace
+- **Původ:** implementační tým (pracovní `decisions.md`)
+- **Stav:** implementováno dle vyjádření týmu, výsledky testů doplnit
+- **Rozhodnutí:** Použít mobile-first rozložení, mobilní uspořádání obsahu pod sebe a hamburger menu pro šířky pod 1200 px. Pro velmi velké monitory tým uvádí použití CSS zoomu.
+- **Důvod:** Udržet čitelnost a použitelnost na odlišných šířkách obrazovky.
+- **Dopad:** Ověřit konkrétní breakpointy, chování navigace a účinek zoomu na přístupnost a rozvržení; samotné tvrzení týmu nenahrazuje výsledky testů.
+
+### DEC-021 – Chování programu, osobního programu a doporučovače
+- **Původ:** implementační tým (pracovní `decisions.md`)
+- **Stav:** implementováno dle vyjádření týmu, formální testování zbývá
+- **Rozhodnutí:** Umožnit filtrování programu a vyhledávání podle názvů, účinkujících i regionů; ukládat události do `localStorage` pod klíčem `mujProgram`; doporučovat kombinace na základě filtrů a existujících vazeb v `data.json` bez náhodného výběru.
+- **Důvod:** Podpořit vyhledávání událostí a osobní plánování s konzistentními festivalovými daty.
+- **Dopad:** V `docs/testing.md` ověřit filtry, stálost uložených událostí, odebrání položky a správnost doporučení.
+
+### DEC-022 – Ilustrační obrázky a záložní zobrazení
+- **Původ:** implementační tým (pracovní `decisions.md`)
+- **Stav:** implementováno dle vyjádření týmu
+- **Rozhodnutí:** Obrázky optimalizovat a u vybraných účinkujících je pojmenovat podle ID v JSON (například `artist-01.jpg`); při nedostupnosti souboru použít CSS gradient.
+- **Důvod:** Udržet vazbu obrázků na datové záznamy a zachovat vzhled při jejich výpadku.
+- **Dopad:** Obrázky interpretů jsou podle týmu ilustrační, ne autentické; v dokumentaci a veřejné prezentaci to musí být zřejmé. Je vhodné doložit původ a oprávnění k použití obrazových podkladů.
+
+### DEC-023 – Odchylky od původního wireframu
+- **Původ:** implementační tým (pracovní `decisions.md`)
+- **Stav:** změny implementované dle vyjádření týmu
+- **Rozhodnutí:** Vynechat tlačítko „Koupit vstupenky“ v hlavičce, protože prototyp neobsahuje e-shop; odstranit interpreta Kryštof, který není v `data.json`; místo ilustrační sekce Masterclass zobrazovat skutečné modelové události uvedené v JSON.
+- **Důvod:** Přizpůsobit implementaci datové základně a aktuálnímu funkčnímu rozsahu.
+- **Dopad:** Implementace se v těchto bodech liší od grafického mockupu. Obsahové údaje musí vycházet z JSON a výběr vstupenek se nesmí vydávat za skutečný online prodej.
+
 ## Pravidla další evidence
 
 Při významné změně konceptu, datového modelu, navigace nebo funkce přidat nový záznam s ID `DEC-013` a dále. Původní rozhodnutí nemažte: při jeho nahrazení změňte stav na **Nahrazeno** a uveďte ID nového rozhodnutí.

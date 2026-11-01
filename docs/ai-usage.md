@@ -261,6 +261,52 @@ AI slouží jako podpůrný nástroj při návrhu projektu, tvorbě dokumentace 
 - **Výstup:** Návrhy souborů v `prototype/` a doplňky evidence v `docs/`.
 - **Ověření:** Kontrola očekávaných cest podle README; před commitem musí tým ověřit kompatibilitu s existujícími dokumenty v repozitáři.
 
+## AI-013 – Obrazové podklady funkčního prototypu (evidence implementačního týmu)
+
+- **Období:** říjen 2026 (přesný den původní evidence neuvádí)
+- **Původ záznamu:** dokument `AI-evidence.md` dodaný implementačním týmem; koordinátor pouze sjednotil zápis
+- **Nástroj:** Gemini (podle vyjádření týmu)
+- **Oblast:** ilustrační obrázky pro web
+- **Účel a použití AI:** tým uvádí generování ilustračních gastronomických fotografií a podkladů k interpretům pro složku obrázků webu.
+- **Ukázka zadání dle týmu (parafráze, nikoliv doslovný prompt):** vytvořit ilustrační fotografie pro gastronomický festival a interprety.
+- **Deklarovaný výsledek:** ilustrační obrázky používané ve funkčním prototypu.
+- **Ověření:** původní evidence neuvádí konkrétní kontrolní postup, názvy výstupních souborů ani posouzení autorských a osobnostních práv; toto je nutné doplnit. Ilustrační fotografie nesmějí být prezentovány jako autentické fotografie účinkujících.
+
+## AI-014 – Dynamické načítání festivalových dat (evidence implementačního týmu)
+
+- **Období:** říjen 2026 (přesný den neuveden)
+- **Původ záznamu:** `AI-evidence.md` implementačního týmu
+- **Nástroj:** Gemini (podle vyjádření týmu)
+- **Oblast:** JavaScript a propojení HTML s daty
+- **Účel a použití AI:** konzultace načítání `data.json` přes `fetch()` a následného dynamického vykreslování místo ručního kopírování festivalových údajů do HTML.
+- **Ukázka zadání dle týmu (parafráze, nikoliv doslovný prompt):** vysvětlit načítání `data.json` přes `fetch()` a dynamické zobrazení obsahu.
+- **Deklarovaný výsledek:** implementační tým uvádí využití jednoho datového zdroje pro údaje o programu a účinkujících.
+- **Ověření:** samotný tým tvrdí, že web testoval a ladil; v dodané evidenci ale nejsou uvedeny testovací případy ani výsledky. Funkčnost načítání bude doložena v `docs/testing.md`; při otevření přes `file://` může být `fetch()` blokován, proto je pro tuto variantu potřeba HTTP server nebo samostatně otestovaný export.
+
+## AI-015 – Konzultace logiky interaktivních funkcí (evidence implementačního týmu)
+
+- **Období:** říjen 2026 (přesný den neuveden)
+- **Původ záznamu:** `AI-evidence.md` implementačního týmu
+- **Nástroj:** Gemini (podle vyjádření týmu)
+- **Oblast:** JavaScript, filtrování programu a `localStorage`
+- **Účel a použití AI:** vysvětlení fungování podmínek, filtrů programu a ukládání oblíbených událostí do lokálního úložiště prohlížeče.
+- **Ukázka zadání dle týmu (parafráze, nikoliv doslovný prompt):** vysvětlit logiku funkcí a podmínek pro úpravu filtru programu.
+- **Deklarovaný výsledek:** tým uvádí vlastní tvorbu skriptů pro filtrování, doporučovač a osobní program s konzultační podporou AI; podíl konkrétních AI výstupů na jednotlivých funkcích nelze z poskytnutého záznamu přesně určit.
+- **Ověření:** chybí doložené konkrétní scénáře a výstupy testů. Doplní se až na základě praktického ověřování.
+
+## AI-016 – Konzultace CSS a responzivity (evidence implementačního týmu)
+
+- **Období:** říjen 2026 (přesný den neuveden)
+- **Původ záznamu:** `AI-evidence.md` implementačního týmu
+- **Nástroj:** Gemini (podle vyjádření týmu)
+- **Oblast:** CSS Grid, Flexbox a mobile-first
+- **Účel a použití AI:** konzultace responzivního rozložení podle wireframu a mockupu, včetně jednosloupcového mobilního rozložení a breakpointu od 768 px.
+- **Ukázka zadání dle týmu (parafráze, nikoliv doslovný prompt):** doporučit mobilní rozložení a breakpoint podle návrhu.
+- **Deklarovaný výsledek:** implementační tým uvádí vlastní tvorbu CSS a konzultaci mobilních úprav s AI.
+- **Ověření:** podle dodané evidence tým web testoval a ladil; nejsou ale uvedeny konkrétní šířky ani naměřené výsledky. Vizuální kontrolu mobilního zobrazení a případné nedostatky je vhodné zaznamenat v `docs/testing.md`.
+
+**Poznámka k původu záznamů AI-013 až AI-016:** Uvedený rozsah práce, použitý nástroj a příklady dotazů pocházejí z dodaného textu implementačního týmu. Nejde o doslovně archivované prompty ani nezávislé potvrzení každého tvrzení. Koordinátor provedl redakční začlenění do jednotné evidence, nikoli autorství popsané implementace. Přesné prompty, data a konkrétní postupy ověřování musí případně dodat autoři původních konzultací.
+
 ## 3. Souhrn dosavadní práce
 
 | Oblast | Dosavadní výsledek |
@@ -281,6 +327,7 @@ AI slouží jako podpůrný nástroj při návrhu projektu, tvorbě dokumentace 
 | Mockup | Vygenerován grafický návrh úvodní stránky pomocí AI |
 | Interaktivní funkce | Navrženo filtrování programu, vyhledávání účinkujících a osobní program |
 | Dokumentace prototypu | Připraveny podklady pro `prototype/README.md` a `prototype/wireframe.md` |
+| Implementace funkčního prototypu (z evidence týmu) | Tým deklaruje HTML/CSS/JS stránky, dynamické načítání JSON, program, osobní program a doporučovač; formální výsledky testů se doplní |
 
 ## 4. Zhodnocení využití AI
 
