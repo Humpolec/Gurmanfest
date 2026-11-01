@@ -76,8 +76,8 @@ Přesné termíny odevzdání se řídí oficiálním zadáním a pokyny vyučuj
 - [x] Návrh vzhledu a struktury.
 - [x] Prototyp klíčových stránek.
 - [x] Tři interaktivní funkce .
-- [] Průchod dvěma scénáři.
-- [] Testování.
+- [x] Průchod dvěma scénáři.
+- [x] Testování.
 - [] Dokumentace.
 - [x] Týmová konzultace nápadů a připomínek .
 - [] Příprava prezentace.

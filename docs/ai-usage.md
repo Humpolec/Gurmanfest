@@ -307,6 +307,47 @@ AI slouží jako podpůrný nástroj při návrhu projektu, tvorbě dokumentace 
 
 **Poznámka k původu záznamů AI-013 až AI-016:** Uvedený rozsah práce, použitý nástroj a příklady dotazů pocházejí z dodaného textu implementačního týmu. Nejde o doslovně archivované prompty ani nezávislé potvrzení každého tvrzení. Koordinátor provedl redakční začlenění do jednotné evidence, nikoli autorství popsané implementace. Přesné prompty, data a konkrétní postupy ověřování musí případně dodat autoři původních konzultací.
 
+### AI-017 – Příprava a vyhodnocení testování funkčního prototypu
+
+**Datum:** 1. 11. 2026  
+**Autor:** Koordinátor projektu  
+**Nástroj:** ChatGPT (OpenAI)  
+**Oblast:** Testování a projektová dokumentace  
+**Související soubor:** `docs/testing.md`
+
+**Účel:** Připravit a zdokumentovat ověření dvou klíčových uživatelských scénářů funkčního prototypu.
+
+**Použití AI:**
+- Návrh testovacího postupu a očekávaných výsledků.
+- Postupné vedení testování osobního programu a doporučovače.
+- Konzultace zjištěných nedostatků a jejich závažnosti.
+- Pomoc s vyhodnocením výsledků a sestavením testovací dokumentace.
+
+**Přijaté výstupy:** Testovací protokol zahrnující dva uživatelské scénáře, celkem 14 testovacích kroků a dva UX poznatky.
+
+**Vlastní práce:** Koordinátor osobně provedl všechny testovací kroky ve webovém prohlížeči, kontroloval chování prototypu, porovnával údaje s programem a předával skutečné výsledky k zaznamenání.
+
+**Ověření:** TEST-001 dokončen s výsledkem 8/8 úspěšných kroků, TEST-002 s výsledkem 6/6 úspěšných kroků. Bylo ověřeno ukládání a odebírání událostí, zachování dat po obnovení stránky, filtrování, doporučování a návaznost vybraných událostí.
+
+**Zjištěné nedostatky:** Po návratu na stránky Program a Doporučovač se resetují nastavené filtry. Oba poznatky byly vyhodnoceny jako neblokující.
+
+**Omezení:** Testování pokrývalo dva konkrétní scénáře, nikoliv kompletní audit funkčnosti, přístupnosti nebo kompatibility celého webu.
+
+## AI-018 – Sjednocení projektové dokumentace druhého milníku
+
+- **Datum:** 1. 11. 2026
+- **Autor redakčního začlenění:** koordinátor projektu
+- **Nástroj:** ChatGPT (OpenAI)
+- **Oblast:** správa projektové dokumentace
+- **Související soubory:** `docs/ai-usage.md`, `docs/decisions.md`, `prototype/README.md`
+- **Účel:** převést podklady implementačního týmu do zavedené struktury evidence bez ztráty historie a aktualizovat popis prototypu.
+- **Použití AI:** porovnání stávajících dokumentů s dodanými soubory `AI-evidence.md` a `decisions.md`; formulace záznamů AI-013 až AI-016 a rozhodnutí DEC-017 až DEC-023; sjednocení názvů, číslování, stavu a struktury; návrh aktualizovaného README funkčního prototypu.
+- **Reprezentativní zadání:** „ted jak propsat decision a ai mdčka do těch hlavnívh ... hlavně at je videt že s tím nemám nic společného“ a „tak to tam taky šoupni“.
+- **Přijaté výstupy:** návrhy sjednocených Markdown dokumentů a aktualizace popisu prototypu.
+- **Rozdělení odpovědnosti:** technické informace o implementaci a použití Gemini pocházejí z podkladů implementačního týmu. Koordinátor sjednotil evidenci, nikoliv autorství implementace. AI provedla pomocnou redakci a návrh textů.
+- **Ověření:** kontrola zachování původních záznamů a označení zdroje nových záznamů; výsledná dokumentace vyžaduje běžnou týmovou kontrolu proti aktuální verzi repozitáře.
+- **Omezení:** některé podklady implementačního týmu obsahovaly obecné popisy místo doslovných promptů a doložených testů. Tyto chybějící informace nebyly domýšleny.
+
 ## 3. Souhrn dosavadní práce
 
 | Oblast | Dosavadní výsledek |
