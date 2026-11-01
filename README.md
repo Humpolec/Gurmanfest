@@ -73,13 +73,13 @@ Přesné termíny odevzdání se řídí oficiálním zadáním a pokyny vyučuj
 
 ### Milník 2 - Projektová Specifikace 
 
-- [] Návrh vzhledu a struktury
-- [] Prototyp klíčových stránek
-- [] Tři interaktivní funkce 
-- [] Průchod dvěma scénáři
-- [] Testování
-- [] Dokumentace
-- [] Týmová konzultace nápadů a připomínek 
+- [x] Návrh vzhledu a struktury.
+- [x] Prototyp klíčových stránek.
+- [x] Tři interaktivní funkce .
+- [] Průchod dvěma scénáři.
+- [] Testování.
+- [] Dokumentace.
+- [x] Týmová konzultace nápadů a připomínek .
 - [] Příprava prezentace.
 - [] Odevzdání druhého milníku.
 
