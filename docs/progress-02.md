@@ -147,26 +147,28 @@ Využití AI nástrojů probíhalo v souladu s etickými zásadami a pravidly p�
 
 ---
 
-## 8. Pokyny ke spuštění prototypu
+## 8. Pokyny ke spuštění a export pro odevzdání (aktualizace 03. 11. 2026)
 
-Vzhledem k tomu, že prototyp načítá festivalová data asynchronně přes JavaScriptové rozhraní `fetch('../data.json')`, může přímé otevření souborů z disku protokolem `file://` selhat z důvodu bezpečnostní politiky prohlížečů (CORS).
+### 8.1 Odevzdávací offline verze – doporučené spuštění
 
-Pro bezproblémové spuštění prototypu doporučujeme použít lokální HTTP server:
+1. Rozbalit **celý** ZIP archiv; nespouštět soubory přímo z náhledu archivu.
+2. V rozbalené složce `Gurmanfest/` dvojklikem otevřít **`index.html`**.
+3. Úvodní soubor automaticky přejde na `web/index.html`; alternativně lze otevřít přímo tento soubor.
+4. Web nevyžaduje Live Server, lokální HTTP server, instalaci nástrojů ani internet. Je nutné zachovat relativní strukturu složek `web/css/`, `web/js/` a `web/images/`.
 
-### Možnost A: Visual Studio Code (Live Server)
-1. Otevřete kořenovou složku projektu ve VS Code.
-2. Klikněte pravým tlačítkem na soubor `prototype/index.html`.
-3. Zvolte **Open with Live Server**.
+**Technické řešení:** offline export (`web/`) používá soubor `web/js/data-offline.js` s daty získanými ze zdrojového `data.json`; JavaScript v exportu už nenačítá JSON pomocí `fetch()`. Původní `data.json` se zachovává jako zdroj dat a součást projektu. Změní-li se data, musí se aktualizovat také offline JS kopie. Externí Google Fonts v offline verzi nahrazují systémové fallback fonty.
 
-### Možnost B: Python (univerzální)
-V kořenovém adresáři projektu spusťte příkaz:
-```bash
-python -m http.server 8000
-```
-Následně otevřete v prohlížeči adresu: `http://localhost:8000/prototype/`
+### 8.2 Původní vývojový prototyp – spuštění přes HTTP
 
-### Možnost C: Node.js
-V kořenovém adresáři spusťte:
-```bash
-npx serve prototype
-```
+Složka `prototype/` byla ponechána jako vývojová varianta s načítáním JSON přes `fetch()`. Při přímém otevření z disku (`file://`) může prohlížeč načítání kvůli bezpečnostním pravidlům zablokovat.
+
+- **VS Code / Live Server:** otevřít **kořen projektu** ve VS Code, spustit Live Server a přejít na `prototype/index.html`.
+- **Python:** v kořeni projektu spustit `python -m http.server 8000` a otevřít `http://localhost:8000/prototype/`.
+
+### 8.3 Rozsah ověření a zbývající kontrola
+
+Automatická kontrola exportu: syntaxe JS, odkazy na místní soubory, porovnání JSON a nepřítomnost `fetch()` v exportní verzi. Podrobnosti uvádí `docs/export-testing.md`.
+
+**Dosud nepotvrzeno manuálně:** spuštění kořenového `index.html` přes `file://` na cílovém počítači, kompletní průchod programem a doporučovačem, zachování uložených položek po F5 a opětovném otevření prohlížeče, ověření navigace v mobilní šířce. Testy TEST-001 a TEST-002 výše ověřovaly dřívější běh prototypu; samy o sobě nedokládají fungování exportu přes `file://`. Chování `localStorage` u lokálních souborů se může mezi prohlížeči lišit.
+
+**Závěr:** offline export je technicky připraven a staticky zkontrolován; před finálním potvrzením odevzdání je nutné dokončit manuální test dvojklikem.
