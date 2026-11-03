@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gurmánfest 2027 – víno, sýry a hudba v Mikulově</title>
+  <meta name="description" content="Gurmánfest 16.–18. července 2027, Gurmánfest Park Mikulov. Degustace regionálních vín a sýrů a koncerty české hudební scény.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- HLAVICKA -->
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="logo">Gurmánfest</a>
+
+      <nav class="menu">
+        <ul>
+          <li><a href="index.html" class="active">Úvod</a></li>
+          <li><a href="program.html">Program</a></li>
+          <li><a href="pripravujeme.html">Účinkující <span class="brzy">brzy</span></a></li>
+          <li><a href="pripravujeme.html">Degustace a regiony <span class="brzy">brzy</span></a></li>
+          <li><a href="pripravujeme.html">Scény <span class="brzy">brzy</span></a></li>
+          <li><a href="index.html#info">Praktické info</a></li>
+          <li><a href="muj-program.html">Můj program</a></li>
+          <li><a href="doporucovac.html">Co si dát k poslechu?</a></li>
+        </ul>
+      </nav>
+
+      <button class="burger" aria-label="Menu">
+        <img class="burger-open" src="images/icons/menu.svg" alt="">
+        <img class="burger-close" src="images/icons/close.svg" alt="">
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <!-- PLACEHOLDER – hero -->
+    <section class="hero">
+      <div class="container hero-text">
+        <h1>Chuť, která<br>má rytmus.</h1>
+        <p class="hero-perex">Tři dny regionálních vín, výběrových sýrů a české hudby v srdci Mikulova.</p>
+        <ul class="hero-info">
+          <li><img src="images/icons/calendar-white.svg" alt=""><span id="festival-datum">…</span></li>
+          <li><img src="images/icons/pin-white.svg" alt=""><span id="festival-misto">…</span></li>
+        </ul>
+        <div class="buttons">
+          <a href="program.html" class="btn btn-red">Prozkoumat program</a>
+          <a href="doporucovac.html" class="btn btn-white-border">Co si dát k poslechu?</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CO VAS CEKA -->
+    <section class="section">
+      <div class="container">
+        <h2 class="title">Co vás čeká na Gurmánfestu</h2>
+        <ul class="features">
+          <li class="feature">
+            <img class="feature-icon" src="images/icons/wine.svg" alt="">
+            <div>
+              <h3>Degustace vín a sýrů</h3>
+              <p><span id="pocet-degustaci">…</span> degustací se živou hudbou. Víno a sýr vždy ze stejného regionu.</p>
+            </div>
+          </li>
+          <li class="feature">
+            <img class="feature-icon" src="images/icons/music.svg" alt="">
+            <div>
+              <h3>Koncerty české scény</h3>
+              <p><span id="pocet-koncertu">…</span> koncertů na Hlavní hudební scéně, od folku až po rap a hip-hop.</p>
+            </div>
+          </li>
+          <li class="feature">
+            <img class="feature-icon" src="images/icons/chef.svg" alt="">
+            <div>
+              <h3>Co si dát k poslechu?</h3>
+              <p>Podle nálady ti doporučíme víno, sýr a koncert. <a href="doporucovac.html">Vyzkoušet</a></p>
+            </div>
+          </li>
+          <li class="feature">
+            <img class="feature-icon" src="images/icons/castle.svg" alt="">
+            <div>
+              <h3 id="areal-nazev">Areál festivalu</h3>
+              <p><span id="pocet-dnu">…</span> dny, <span id="pocet-scen">…</span> scény a <span id="pocet-regionu">…</span> regionálních stánků (fiktivní areál).</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- VYBRANE AKCE -->
+    <section class="section" id="program">
+      <div class="container">
+        <div class="section-top">
+          <h2 class="title">Vybrané body programu</h2>
+          <a href="program.html" class="more">Celý program <img src="images/icons/arrow.svg" alt=""></a>
+        </div>
+        <ul class="events" id="vybrane-akce">
+          <li class="zprava">Načítám program…</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- DEGUSTACE -->
+    <section class="section beige" id="degustace">
+      <div class="container">
+        <div class="section-top">
+          <h2 class="title">Regionální degustace</h2>
+          <a href="pripravujeme.html" class="more">Všechny regiony <span class="brzy">brzy</span></a>
+        </div>
+        <ul class="tiles tiles-4" id="regiony">
+          <li class="zprava">Načítám regiony…</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- UCINKUJICI -->
+    <section class="section" id="ucinkujici">
+      <div class="container">
+        <div class="section-top">
+          <h2 class="title">Vybraní účinkující</h2>
+          <a href="pripravujeme.html" class="more">Všichni účinkující <span class="brzy">brzy</span></a>
+        </div>
+        <ul class="tiles tiles-3" id="ucinkujici-seznam">
+          <li class="zprava">Načítám účinkující…</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- VSTUPNE -->
+    <section class="section beige" id="vstupenky">
+      <div class="container">
+        <h2 class="title">Vstupné</h2>
+        <ul class="tickets" id="vstupne">
+          <li class="zprava">Načítám vstupné…</li>
+        </ul>
+        <p class="poznamka" id="vstupne-poznamka"></p>
+      </div>
+    </section>
+
+    <!-- PRAKTICKE INFO -->
+    <section class="section" id="info">
+      <div class="container">
+        <h2 class="title">Praktické informace</h2>
+        <ul class="info" id="info-seznam">
+          <li class="zprava">Načítám informace…</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ZAVER -->
+    <!-- PLACEHOLDER – mikulov -->
+    <section class="final">
+      <div class="container">
+        <h2>Zažijte tři dny chutí, hudby a letní atmosféry v Mikulově.</h2>
+        <div class="buttons center">
+          <a href="program.html" class="btn btn-light btn-small">Prozkoumat program</a>
+          <a href="doporucovac.html" class="btn btn-red btn-small">Co si dát k poslechu?</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- PATICKA -->
+  <footer class="footer">
+    <div class="container">
+      <a href="index.html" class="logo">Gurmánfest</a>
+      <ul class="footer-menu">
+        <li><a href="program.html">Program</a></li>
+        <li><a href="muj-program.html">Můj program</a></li>
+        <li><a href="doporucovac.html">Co si dát k poslechu?</a></li>
+        <li><a href="index.html#info">Praktické info</a></li>
+        <li><a href="mailto:info@gurmanfest.example">Kontakt</a></li>
+      </ul>
+      <ul class="social">
+        <li><a href="#" aria-label="Instagram (plánovaný profil)" title="Plánovaný profil"><img src="images/icons/instagram.svg" alt=""></a></li>
+        <li><a href="#" aria-label="Facebook (plánovaný profil)" title="Plánovaný profil"><img src="images/icons/facebook.svg" alt=""></a></li>
+      </ul>
+      <p class="copyright">© 2027 Gurmánfest – fiktivní školní projekt. Údaje o areálu, programu a cenách jsou modelové.</p>
+    </div>
+  </footer>
+
+  <script src="js/data-offline.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>
