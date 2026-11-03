@@ -5,6 +5,19 @@
 
 Webové stránky fiktivního gastronomického a hudebního festivalu zaměřeného na degustaci vín a sýrů pocházejících ze stejných geografických regionů, doplněného o koncerty českých hudebních skupin.
 
+## Spuštění odevzdávací offline verze (03. 11. 2026)
+
+**Pro kontrolu odevzdání:** rozbalte kompletní archiv a v kořenové složce `Gurmanfest/` otevřete dvojklikem soubor **`index.html`**. Ten přesměruje na `web/index.html`. Není potřeba VS Code, Live Server, Python, Node.js ani internetové připojení.
+
+- `web/` – samostatná offline varianta interaktivních stránek; načítá data z `web/js/data-offline.js`.
+- `data.json` – původní zdrojová data; `web/data.json` je jejich kopie pro přehlednost. Při změně dat je nutno znovu vygenerovat i `web/js/data-offline.js`.
+- `prototype/` – původní vývojová verze používající `fetch()`; při jejím spuštění je nadále potřeba HTTP server (například Live Server z kořene projektu).
+- `docs/export-testing.md` – technické kontroly exportu a seznam manuálních testů.
+
+**Stav ověření:** kontrola syntaxe JS, relativních odkazů a shody dat proběhla. Otevření přes `file://` v reálném prohlížeči včetně ukládání oblíbených po F5 ještě vyžaduje manuální potvrzení. Chování `localStorage` u lokálních souborů závisí na prohlížeči. Nedokončené sekce projektu zůstávají nedokončené i v exportu.
+
+---
+
 ## 1. O projektu
 
 | Položka | Hodnota |

@@ -36,7 +36,7 @@ Pro načítání dat přes `fetch()` otevřete **kořenovou složku repozitáře
 
 Důležité: nespouštějte server pouze z izolované složky `prototype/`, pokud by pak nebyl dostupný kořenový `data.json`.
 
-Samotný dvojklik na `index.html` (`file://`) **nemusí fungovat**, protože prohlížeč může zablokovat `fetch()` lokálního JSON. Pro odevzdání bez lokálního serveru se připraví a samostatně otestuje export. Dokud není ověřen, není tato varianta označena jako hotová.
+Samotný dvojklik na `index.html` (`file://`) **nemusí fungovat**, protože prohlížeč může zablokovat `fetch()` lokálního JSON. Pro odevzdání bez lokálního serveru byla 03. 11. 2026 vytvořena samostatná varianta v `../web/`. Spouští se dvojklikem na `../index.html` po rozbalení kompletního archivu; manuální ověření chování ve skutečném prohlížeči zatím čeká na potvrzení.
 
 ### Kontrola mobilního vzhledu
 

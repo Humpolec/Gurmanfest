@@ -348,6 +348,20 @@ AI slouží jako podpůrný nástroj při návrhu projektu, tvorbě dokumentace 
 - **Ověření:** kontrola zachování původních záznamů a označení zdroje nových záznamů; výsledná dokumentace vyžaduje běžnou týmovou kontrolu proti aktuální verzi repozitáře.
 - **Omezení:** některé podklady implementačního týmu obsahovaly obecné popisy místo doslovných promptů a doložených testů. Tyto chybějící informace nebyly domýšleny.
 
+## AI-019 – Příprava offline exportu a aktualizace návodů
+
+- **Datum:** 03. 11. 2026
+- **Autor zadání a kontroly:** koordinátor projektu
+- **Nástroj:** ChatGPT (OpenAI)
+- **Oblast:** technická příprava odevzdání, úprava kopie webu a dokumentace
+- **Související soubory:** `web/`, kořenový `index.html`, `README.md`, `docs/progress-02.md`, `docs/decisions.md`, `docs/export-testing.md`, `docs/ai-usage.md`, `prototype/README.md`
+- **Účel:** zajistit spustitelnou odevzdávací verzi otevřitelnou dvojklikem bez Live Serveru, a přesně dokumentovat postup spuštění i rozsah ověření.
+- **Reprezentativní zadání:** „musíme udělat exportní verzi webu, aby jsme jej mohli odevzdat ... musí to otevřít kliknutím a musí to fungovat“ a „tak uprav mi i ty soubory, ještě mi uprav i tu poslední část tuším progresu, kde je jak spustit web“.
+- **Použití AI:** kontrola struktury projektu a načítání dat; vytvoření exportní kopie s lokálními JS daty; úprava importů skriptů a relativních cest; návrh kontrol exportu; aktualizace evidence rozhodnutí, AI a návodů ke spuštění.
+- **Přijaté výstupy:** samostatná `web/` varianta, spouštěcí soubor v kořeni a aktualizované Markdown návody. Původní `prototype/` zůstal pro vývojovou práci.
+- **Ověření:** statická kontrola syntaxe JavaScriptu, lokálních odkazů, shody dat a nepřítomnosti `fetch()` v exportním JS; viz `docs/export-testing.md`.
+- **Omezení:** nebylo potvrzeno manuální spuštění přes `file://` v cílovém prohlížeči ani chování `localStorage` po F5. Tyto testy musí provést člen týmu; jejich výsledky se nesmějí vydávat za již ověřené.
+
 ## 3. Souhrn dosavadní práce
 
 | Oblast | Dosavadní výsledek |

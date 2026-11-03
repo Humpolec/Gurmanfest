@@ -165,6 +165,15 @@
 - **Důvod:** Přizpůsobit implementaci datové základně a aktuálnímu funkčnímu rozsahu.
 - **Dopad:** Implementace se v těchto bodech liší od grafického mockupu. Obsahové údaje musí vycházet z JSON a výběr vstupenek se nesmí vydávat za skutečný online prodej.
 
+### DEC-024 – Samostatný offline export pro odevzdání
+- **Datum:** 03. 11. 2026
+- **Původ:** koordinace odevzdání; technická úprava exportní kopie za pomoci ChatGPT
+- **Stav:** export vytvořen, automatické kontroly provedeny; manuální test `file://` čeká na potvrzení
+- **Rozhodnutí:** Zachovat původní vývojový `prototype/` s načítáním přes `fetch()` a vytvořit samostatný `web/` pro otevření dvojklikem bez HTTP serveru. Data exportu poskytuje `web/js/data-offline.js` (vygenerovaná kopie zdrojového `data.json`); kořenový `index.html` přesměruje na `web/index.html`.
+- **Důvod:** Požadavek na odevzdání spustitelné bez instalace a bez lokálního serveru; při protokolu `file://` může `fetch()` lokálních dat selhávat.
+- **Dopad:** Původní JSON zůstává zachován, exportní datový JS se musí při každé změně JSON znovu vygenerovat. Offline export používá systémové fallback fonty namísto vzdáleného Google Fonts. Připravený export není dokladem úplného manuálního ověření; `localStorage` na `file://` může mít rozdílné chování podle prohlížeče.
+- **Evidence ověření:** `docs/export-testing.md`; spouštěcí postup v `README.md` a `docs/progress-02.md`.
+
 ## Pravidla další evidence
 
 Při významné změně konceptu, datového modelu, navigace nebo funkce přidat nový záznam s ID `DEC-013` a dále. Původní rozhodnutí nemažte: při jeho nahrazení změňte stav na **Nahrazeno** a uveďte ID nového rozhodnutí.
