@@ -362,6 +362,44 @@ AI slouží jako podpůrný nástroj při návrhu projektu, tvorbě dokumentace 
 - **Ověření:** statická kontrola syntaxe JavaScriptu, lokálních odkazů, shody dat a nepřítomnosti `fetch()` v exportním JS; viz `docs/export-testing.md`.
 - **Omezení:** nebylo potvrzeno manuální spuštění přes `file://` v cílovém prohlížeči ani chování `localStorage` po F5. Tyto testy musí provést člen týmu; jejich výsledky se nesmějí vydávat za již ověřené.
 
+## AI-020 – Analýza požadavků třetího milníku a plán práce
+
+- **Datum:** 13. 11. 2026
+- **Autor zadání:** koordinátor projektu
+- **Nástroj:** ChatGPT (OpenAI)
+- **Oblast:** plánování implementace, kontrola zadání, dokumentace
+- **Související soubory:** `README.md`, `web/README.md`, budoucí `docs/progress-03.md`
+- **Účel:** Vyhodnotit požadavky cvičení 4 proti dosaženému stavu a rozdělit úkoly pro čtyřčlenný tým.
+- **Reprezentativní zadání:** „Tak fajn, máme hotový 2. milník. Teď se můžeme vrhnout na ten třetí“; „super, tak mám připravenou kopii ve webu a teď asi upravíme hlavní README.md, vytvoříme README.md pro web a připravíme postup a kdo co bude dělat“; „chci aby jsi README to hlavní upravi ltak, aby tam jen přibily potřebné věci nebo úpravy nepřestností, jinak zachovej strukturu“.
+- **Výstup AI:** Přehled povinných výstupů třetího milníku, návrh uspořádání `prototype/`, `web/` a odděleného exportu, návrhy aktualizací obou README a rozdělení práce.
+- **Převzato / upraveno / odmítnuto:** Přijato oddělení historického prototypu od vývojového webu. Koordinátor požadoval zachovat původní strukturu hlavního README a sloučit plán milníku do `web/README.md`; duplicitní plán byl odmítnut. Návrh odpovědností upraven tak, aby Filip a Vladislav pracovali společně.
+- **Ověření:** Požadavky porovnány se zněním zadání cvičení 4 a známými výsledky druhého milníku. Text README revidoval koordinátor. Dokončení webu ani audit jeho kódu tím nejsou prokázány.
+
+## AI-021 – Konzultace UX změn a rozsahu implementace
+
+- **Datum:** 13. 11. 2026
+- **Autor zadání:** koordinátor projektu
+- **Nástroj:** ChatGPT (OpenAI)
+- **Oblast:** UX, interaktivita, projektové rozhodování
+- **Související soubory:** `web/README.md`, `docs/decisions.md`
+- **Účel:** Upřesnit chování navigace, doporučovače a oblíbených a určit, které stránky musí být dokončeny již ve třetím milníku.
+- **Reprezentativní zadání:** „když přecházíme na kotvu kde je obecné info z hlavní stránky nebo z jakékoliv jiné, zůstane v menu nahoře zaškrtlé poslední ale ne to obecné info“; „chtěl odstranit tlačítk na použití doporučovače, zanechat jen odstranení filtru“; „graficky znázornit srdíčko ... u mého programu ... číslem co reprezentuje počet oblíbených“; „teď nebudeme dodělávat stránky učinkujícíc, degustace a regiony a svény“.
+- **Výstup AI:** Strukturovaný soupis čtyř UX úprav, návrh zachování automatických reakcí doporučovače a ukládání oblíbených, doporučení odložit kompletní obsahové stránky do review-ready fáze za předpokladu splnění minimálního rozsahu cvičení 4.
+- **Převzato / upraveno / odmítnuto:** Požadavky na UX formuloval koordinátor; AI je pomohla zpřesnit do zadání pro implementační tým. Nejde o AI vytvořenou ani otestovanou změnu zdrojového kódu.
+- **Ověření:** Koncepční porovnání se zadáním a dosavadními scénáři TEST-001 a TEST-002. Nové UX změny dosud nebyly implementovány ani opětovně otestovány; po dokončení je nutné zapsat skutečné výsledky do `docs/testing.md` a `docs/progress-03.md`.
+
+## AI-022 – Aktualizace rozhodnutí a evidence AI při zahájení třetího milníku
+
+- **Datum:** 13. 11. 2026
+- **Autor zadání:** koordinátor projektu
+- **Nástroj:** ChatGPT (OpenAI)
+- **Oblast:** dokumentace
+- **Související soubory:** `docs/decisions.md`, `docs/ai-usage.md`
+- **Přesné zadání:** „tak jo, máme obě readme, teď urpavit dokumentaci decision a AI“.
+- **Výstup:** Doplnění rozhodnutí DEC-025 až DEC-028 a záznamů AI-020 až AI-022 při zachování historie.
+- **Převzato / upraveno / odmítnuto:** Doplněny schválené organizační a UX návrhy; jejich realizace zůstává označena jako plánovaná, nikoli hotová.
+- **Ověření:** Kontrola navazujícího číslování a soulad názvů souborů s odsouhlasenou strukturou. Finální týmová kontrola po vložení do repozitáře zbývá.
+
 ## 3. Souhrn dosavadní práce
 
 | Oblast | Dosavadní výsledek |

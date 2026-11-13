@@ -16,11 +16,13 @@ for (let i = 0; i < menuLinks.length; i++) {
 
 /* NACTENI DAT */
 function nactiData() {
-  return Promise.resolve(window.GURMANFEST_DATA);
+  return fetch('data.json').then(function (odpoved) {
+    return odpoved.json();
+  });
 }
 
 function chybaDat() {
-  return '<li class="zprava">Data se nepodařilo načíst.</li>';
+  return '<li class="zprava">Data se nepodařilo načíst. Spusť web přes Live Server.</li>';
 }
 
 /* HLEDANI PODLE ID */

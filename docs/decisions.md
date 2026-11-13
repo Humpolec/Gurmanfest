@@ -174,6 +174,36 @@
 - **Dopad:** Původní JSON zůstává zachován, exportní datový JS se musí při každé změně JSON znovu vygenerovat. Offline export používá systémové fallback fonty namísto vzdáleného Google Fonts. Připravený export není dokladem úplného manuálního ověření; `localStorage` na `file://` může mít rozdílné chování podle prohlížeče.
 - **Evidence ověření:** `docs/export-testing.md`; spouštěcí postup v `README.md` a `docs/progress-02.md`.
 
+## Rozhodnutí pro třetí milník – 13. 11. 2026
+
+### DEC-025 – Oddělení prototypu, vývojového webu a exportu
+- **Datum:** 13. 11. 2026
+- **Stav:** Přijato; pracovní kopie již připravena ve `web/`
+- **Rozhodnutí:** `prototype/` ponechat jako neměnný výstup 2. milníku. Aktuální vývoj od 3. milníku pokračuje v `web/`, který používá `fetch()` a spouští se přes Live Server. Offline export se bude pořizovat odděleně z aktuální verze pro odevzdání; nebude zdrojovou vývojovou složkou.
+- **Důvod:** Zachovat reprodukovatelnou historickou podobu 2. milníku, čistý vývojový adresář a oddělit omezení protokolu `file://` od běžného vývoje.
+- **Dopad:** Původní popis umístění offline `web/` v DEC-024 platí pouze pro tehdejší export. Ověřit relativní cesty a načítání JSON po kopírování; běžný `web/` se nespouští dvojklikem.
+
+### DEC-026 – Vymezení rozsahu třetího milníku
+- **Datum:** 13. 11. 2026
+- **Stav:** Přijato pro plán práce
+- **Rozhodnutí:** Ve 3. milníku upřednostnit funkční úvodní stránku, alespoň jednu obsahově odlišnou stránku, navigaci, interaktivitu, responzivitu, sémantiku, kontrolu přístupnosti a povinný `docs/progress-03.md`. Dokončení všech profilových/katalogových stránek účinkujících, degustací, regionů a scén je plánováno do review-ready fáze.
+- **Důvod:** Odpovídá minimálnímu rozsahu zadání cvičení 4 a zabraňuje nedokončeným rozpracovaným částem na úkor testovatelnosti.
+- **Dopad:** Je nutno ověřit existenci skutečně obsahově odlišné stránky a v dokumentaci pravdivě uvést dosud nedokončené části.
+
+### DEC-027 – Úpravy uživatelského rozhraní pro třetí milník
+- **Datum:** 13. 11. 2026
+- **Stav:** Schválený návrh; implementace a nové testy dosud neprovedeny
+- **Rozhodnutí:** (1) Správně zvýraznit aktivní položku hlavního menu také při přechodu na kotvu praktických/obecných informací z jiné stránky; (2) odstranit nadbytečné potvrzovací tlačítko doporučovače a ponechat reset filtrů, protože doporučení reagují na změny průběžně; (3) vizuálně odlišit přidání/odebrání koncertu či degustace do oblíbených; (4) zobrazit u „Můj program“ srdce s aktuálním počtem uložených událostí pouze tehdy, když je počet alespoň jedna.
+- **Důvod:** Zpřehlednění stavu navigace, odstranění zbytečného kroku a okamžitá srozumitelná vizuální odezva.
+- **Dopad:** Zachovat synchronizaci oblíbených mezi stránkami a perzistenci `localStorage`. Ověřit reakce po přidání/odebrání, přechodech a obnovení stránky; počet odvozovat ze skutečně uložených unikátních událostí.
+
+### DEC-028 – Organizace práce a dokumentace třetího milníku
+- **Datum:** 13. 11. 2026
+- **Stav:** Přijato jako pracovní rozdělení
+- **Rozhodnutí:** Hlavní `README.md` ponechat s původní strukturou a pouze aktualizovat skutečnosti. Operativní plán a úkoly třetího milníku soustředit do `web/README.md` místo duplicitního samostatného plánovacího souboru. Filip Talián a Vladislav Zahrabailau společně implementují a dolaďují web; Josef Kovář připravuje testovací a milníkovou dokumentaci; Daniel Bartoníček koordinuje integraci a odevzdání.
+- **Důvod:** Jeden zdroj aktuálního zadání pro implementační tým, srozumitelné odpovědnosti a méně rozcházejících se dokumentů.
+- **Dopad:** Vytvořit `docs/progress-03.md` se skutečným stavem implementace, použitými UX/designovými postupy, odchylkami od prototypu, testy a využitím AI. Zůstává týmové PR review dle hlavního README.
+
 ## Pravidla další evidence
 
 Při významné změně konceptu, datového modelu, navigace nebo funkce přidat nový záznam s ID `DEC-013` a dále. Původní rozhodnutí nemažte: při jeho nahrazení změňte stav na **Nahrazeno** a uveďte ID nového rozhodnutí.

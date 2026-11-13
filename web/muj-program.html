@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Připravujeme – Gurmánfest 2027</title>
-  <meta name="description" content="Sekce Účinkující, Degustace a regiony a Scény se připravují.">
+  <title>Můj program – Gurmánfest 2027</title>
+  <meta name="description" content="Tvůj osobní program Gurmánfestu – uložené koncerty a degustace seřazené podle času.">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -22,7 +23,7 @@
           <li><a href="pripravujeme.html">Degustace a regiony <span class="brzy">brzy</span></a></li>
           <li><a href="pripravujeme.html">Scény <span class="brzy">brzy</span></a></li>
           <li><a href="index.html#info">Praktické info</a></li>
-          <li><a href="muj-program.html">Můj program</a></li>
+          <li><a href="muj-program.html" class="active">Můj program</a></li>
           <li><a href="doporucovac.html">Co si dát k poslechu?</a></li>
         </ul>
       </nav>
@@ -39,14 +40,18 @@
     <!-- NADPIS -->
     <section class="page-top">
       <div class="container">
-        <h1>Připravujeme</h1>
-        <p>Sekce <strong>Účinkující</strong>, <strong>Degustace a regiony</strong> a <strong>Scény</strong> jsou zatím rozpracované.</p>
+        <h1>Můj program</h1>
+        <p>Koncerty a degustace, které máš uložené srdíčkem. Ukládají se jen v tomhle prohlížeči, registrace není potřeba.</p>
       </div>
     </section>
 
+    <!-- ULOZENE AKCE -->
     <section class="section">
       <div class="container">
-        <p class="zprava">Než je dokončíme, najdeš účinkující, regiony i obě scény v <a href="program.html">Programu</a> – stačí použít filtr nebo hledání. Víno, sýr a koncert podle nálady ti vybere <a href="doporucovac.html">Co si dát k poslechu?</a></p>
+        <p class="pocet" id="pocet" aria-live="polite"></p>
+        <div id="muj-seznam">
+          <p class="zprava">Načítám…</p>
+        </div>
       </div>
     </section>
 
@@ -71,7 +76,7 @@
     </div>
   </footer>
 
-  <script src="js/data-offline.js"></script>
   <script src="js/script.js"></script>
+  <script src="js/muj-program.js"></script>
 </body>
 </html>

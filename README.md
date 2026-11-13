@@ -5,17 +5,13 @@
 
 Webové stránky fiktivního gastronomického a hudebního festivalu zaměřeného na degustaci vín a sýrů pocházejících ze stejných geografických regionů, doplněného o koncerty českých hudebních skupin.
 
-## Spuštění odevzdávací offline verze (03. 11. 2026)
+## Spuštění projektu
 
-**Pro kontrolu odevzdání:** rozbalte kompletní archiv a v kořenové složce `Gurmanfest/` otevřete dvojklikem soubor **`index.html`**. Ten přesměruje na `web/index.html`. Není potřeba VS Code, Live Server, Python, Node.js ani internetové připojení.
+Aktuální vývojová verze webu je ve složce `web/`. Spouští se přes **Live Server** ve VS Code (otevřít kořen projektu a stránku `web/index.html`). Web používá načítání dat přes `fetch()`, proto se vývojová verze nespouští přímo přes `file://`.
 
-- `web/` – samostatná offline varianta interaktivních stránek; načítá data z `web/js/data-offline.js`.
-- `data.json` – původní zdrojová data; `web/data.json` je jejich kopie pro přehlednost. Při změně dat je nutno znovu vygenerovat i `web/js/data-offline.js`.
-- `prototype/` – původní vývojová verze používající `fetch()`; při jejím spuštění je nadále potřeba HTTP server (například Live Server z kořene projektu).
-- `docs/export-testing.md` – technické kontroly exportu a seznam manuálních testů.
-
-**Stav ověření:** kontrola syntaxe JS, relativních odkazů a shody dat proběhla. Otevření přes `file://` v reálném prohlížeči včetně ukládání oblíbených po F5 ještě vyžaduje manuální potvrzení. Chování `localStorage` u lokálních souborů závisí na prohlížeči. Nedokončené sekce projektu zůstávají nedokončené i v exportu.
-
+- `prototype/` – zachovaná verze druhého milníku; také se spouští přes Live Server.
+- `web/` – aktuální implementace od třetího milníku; další informace a úkoly jsou v [`web/README.md`](web/README.md).
+- Offline export pro spuštění dvojklikem je řešen samostatně mimo běžnou vývojovou složku; do `web/` nezasahuje.
 ---
 
 ## 1. O projektu
@@ -46,9 +42,9 @@ Webové stránky fiktivního gastronomického a hudebního festivalu zaměřené
 | Člen | Jméno a příjmení | GitHub | Odpovědnost |
 |---|---|---|---|
 | Člen 1 | Daniel Bartoníček | [@Humpolec](https://github.com/Humpolec) | Koordinace projektu, konzultace nápadů a připomínek, vše co vás napadne :d, rád pomůžu |
-| Člen 2 | Filip Talián | [@TalosF](https://github.com/TalosF) | Vytvoření funkčního prototypu společně s [@Polearp] |
-| Člen 3 | Vladislav Zahrabailau | [@Polearp](https://github.com/Polearp) | Vytvoření funkčního prototypu společně s [@TalosF]|
-| Člen 4 | Josef Kovář | [@PePa24](https://github.com/PePa24)| Důkladná spolupráce se všemi a závěrečné vytvoření dokumentace podle zadání v moodle|
+| Člen 2 | Filip Talián | [@TalosF](https://github.com/TalosF) | implementace UX úprav a technické doladění webu společně s [@polearp] |
+| Člen 3 | Vladislav Zahrabailau | [@Polearp](https://github.com/Polearp) | implementace UX úprav a technické doladění webu společně s [@TalosF]|
+| Člen 4 | Josef Kovář | [@PePa24](https://github.com/PePa24) | testování, dokumentace a příprava progress-03.md.|
 
 Konkrétní úkoly a odpovědnosti jednotlivých členů týmu budou rozdělovány podle aktuálních milníků prostřednictvím GitHub Issues.
 Za koordinaci projektu, kontrolu plnění milníků a organizaci týmové spolupráce odpovídá Daniel Bartoníček.
@@ -60,8 +56,8 @@ Projekt bude postupně realizován podle milníků stanovených v zadání před
 | Milník | Hlavní výstup | Stav |
 |---|---|---|
 | Cvičení 2 | Projektová specifikace a datová základna | Hotovo |
-| Cvičení 3 | Interaktivní prototyp | Rozpracováno |
-| Cvičení 4 | Implementace webu | Čeká |
+| Cvičení 3 | Interaktivní prototyp | Hotovo |
+| Cvičení 4 | Implementace webu | Rozpracováno |
 | Cvičení 5 | Review-ready verze | Čeká |
 | Cross-review | Oponentura a vyhodnocení | Čeká |
 | Finální odevzdání | Web a závěrečná dokumentace | Čeká |
@@ -91,10 +87,20 @@ Přesné termíny odevzdání se řídí oficiálním zadáním a pokyny vyučuj
 - [x] Tři interaktivní funkce .
 - [x] Průchod dvěma scénáři.
 - [x] Testování.
-- [] Dokumentace.
+- [x] Dokumentace.
 - [x] Týmová konzultace nápadů a připomínek .
-- [] Příprava prezentace.
-- [] Odevzdání druhého milníku.
+- [x] Příprava prezentace.
+- [x] Odevzdání druhého milníku.
+
+### Milník 3 – První funkční implementace webu
+
+- [x] Založení pracovní verze ve složce `web/` z dokončeného prototypu.
+- [ ] Dokončení úprav navigace, doporučovače a oblíbených položek.
+- [ ] Kontrola responzivity, sémantiky a přístupnosti.
+- [ ] Otestování klíčových uživatelských scénářů v aktuální verzi.
+- [ ] Zpracování `docs/progress-03.md` včetně konkrétních UX/designových best practices a trendů, změn proti prototypu, testů a ověření výstupů AI.
+- [ ] Příprava ukázky mobilní a desktopové verze, navigace a interaktivity (případně souboru prezentace).
+- [ ] Odevzdání třetího milníku.
 
 ## 5. Struktura projektu
 
@@ -107,14 +113,17 @@ Gurmánfest/
 ├── data.json
 ├── documentation.md
 │
-├── prototype/
-├── web/
+├── prototype/              # zachovaná verze 2. milníku (Live Server)
+├── web/                    # aktuální implementace (Live Server)
+│   └── README.md
 ├── review/
 │
 ├── docs/
-│   ├── ai-log.md
+│   ├── ai-usage.md
 │   ├── decisions.md
-│   └── testing.md
+│   ├── testing.md
+│   ├── progress-02.md
+│   └── progress-03.md      # vzniká ve 3. milníku
 │
 └── .github/
 ```
@@ -200,6 +209,6 @@ Povinné výstupy se odevzdávají podle aktuálního milníku a oficiálního z
 
 **GitHub `main`:** Pouze soubory určené k odevzdání.
 
-**Moodle:** Požadované výstupy konkrétního milníku.
+**Moodle:** Požadované výstupy konkrétního milníku. Pro cvičení 4 jde o aktuální složku `web/`, dokument `progress-03.md` a případně prezentaci. Dokument průběžně vedeme v `docs/`; při odevzdání ověříme požadované umístění a formát podle pokynů vyučujícího.
 
 Pomocné soubory v pracovním repozitáři nejsou automaticky součástí finálního odevzdání.
