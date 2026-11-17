@@ -26,6 +26,7 @@ nactiData().then(function (data) {
   vypisVstupne(data);
   vypisInfo(data);
   nastavSrdicka();
+  skocNaKotvu();
 }).catch(function () {
   document.getElementById('vybrane-akce').innerHTML = chybaDat();
   document.getElementById('regiony').innerHTML = chybaDat();
@@ -47,6 +48,16 @@ function vypisFestival(data) {
   let areal = data.festival.provozniInformace.areal.nazev;
   document.getElementById('festival-misto').textContent = areal;
   document.getElementById('areal-nazev').textContent = areal;
+}
+
+
+/* SKOK NA KOTVU */
+function skocNaKotvu() {
+  if (location.hash == '') return;
+  let cil = document.querySelector(location.hash);
+  if (cil) {
+    cil.scrollIntoView();
+  }
 }
 
 
@@ -112,7 +123,11 @@ function vypisAkce(data) {
     }
     html += '</ul>';
 
-    html += '<button class="heart" data-id="' + akce.id + '"><img src="images/icons/heart.svg" alt=""></button>';
+    let nazevAkce = umelec.nazev;
+    if (akce.typ != 'koncert') {
+      nazevAkce = 'degustace ' + najdi(data.regiony, najdi(data.parovani, akce.parovaniId).regionId).nazev;
+    }
+    html += '<button type="button" class="heart" data-id="' + akce.id + '" aria-label="Uložit do mého programu: ' + nazevAkce + '"><img src="images/icons/heart.svg" alt=""></button>';
     html += '</div>';
     html += '</li>';
   }

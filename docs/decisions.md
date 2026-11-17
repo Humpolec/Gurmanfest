@@ -204,6 +204,39 @@
 - **Důvod:** Jeden zdroj aktuálního zadání pro implementační tým, srozumitelné odpovědnosti a méně rozcházejících se dokumentů.
 - **Dopad:** Vytvořit `docs/progress-03.md` se skutečným stavem implementace, použitými UX/designovými postupy, odchylkami od prototypu, testy a využitím AI. Zůstává týmové PR review dle hlavního README.
 
+## Doplnění evidence po porovnání implementace – 17. 11. 2026
+
+### DEC-029 – Realizace dříve schválených UX změn
+- **Datum evidence:** 17. 11. 2026 (datum samotné implementace z porovnaných ZIP nelze určit)
+- **Původ:** porovnání předané verze webu s verzí 2. milníku; věcně navazuje na DEC-027
+- **Stav:** změny jsou přítomné ve zdrojovém kódu, nové ruční testy nebyly součástí této kontroly
+- **Rozhodnutí / realizace:** Potvrzovací tlačítko „Doporučit“ bylo odstraněno a doporučovač zůstal průběžně reagující na změny výběru. Navigace dynamicky označuje aktivní stránku či kotvu praktických informací. U událostí je doplněno kontrastní zvýraznění uloženého srdíčka a navigace zobrazuje počet položek v „Můj program“ se změnou vzhledu při nenulovém počtu.
+- **Důvod:** Realizace již zaznamenaných požadavků DEC-027, přehlednější navigace a viditelnější odezva na uložení.
+- **Dopad:** Potřeba regresně ověřit správnost zvýraznění při scrollování a změně URL, synchronizaci srdíček a počtu oblíbených mezi stránkami a chování na mobilu. Nejde o nové koncepční rozhodnutí oproti DEC-027.
+
+### DEC-030 – Přístupnější ovládání a sémantika webu
+- **Datum evidence:** 17. 11. 2026
+- **Původ:** změny zjištěné porovnáním HTML, CSS a JS ve dvou předaných ZIP
+- **Stav:** implementováno v kódu, bez potvrzeného auditu přístupnosti
+- **Rozhodnutí:** Doplnit odkaz pro přeskočení navigace na obsah, viditelný fokus pro klávesnici, reakci na `prefers-reduced-motion`, ovládání mobilního menu s `aria-expanded` a uzavřením klávesou Escape, významové značky `nav`/`main`/`time`, dostupnější popisky a minimální rozměry vybraných ovládacích prvků 44 px. Neaktivní sociální profily ponechat jako označené ikony bez nefunkčních odkazů.
+- **Důvod:** Zlepšit orientaci, klávesnicové ovládání a srozumitelnost pro asistivní technologie a odstranit falešné prokliky.
+- **Dopad:** Vyžaduje ověření v prohlížeči, na mobilních šířkách a při ovládání klávesnicí; úpravy samotné neprokazují plný soulad s WCAG 2.0 AA.
+
+### DEC-031 – Směrování dosud nedokončených sekcí na konkrétní kotvy
+- **Datum evidence:** 17. 11. 2026
+- **Původ:** porovnání odkazů v HTML stránkách předané implementace
+- **Stav:** implementováno v kódu, bez samostatných ručních testů
+- **Rozhodnutí:** Odkazy na dosud rozpracované sekce „Účinkující“, „Degustace a regiony“ a „Scény“ nadále vedou na společnou stránku `pripravujeme.html`, ale nově na příslušné kotvy `#ucinkujici`, `#degustace` a `#sceny`.
+- **Důvod:** Zachovat informaci o nedokončených sekcích a současně návštěvníkovi ukázat, kterou sekci hledal.
+- **Dopad:** Jde o zpřesnění původního řešení DEC-019, nikoli o dokončení samostatných obsahových stránek.
+
+### DEC-032 – Zachování nastavení filtrů programu a doporučovače
+- **Datum:** 17. 11. 2026
+- **Stav:** Implementováno ve zdrojových souborech; funkční testování v prohlížeči zatím neprovedeno
+- **Rozhodnutí:** Ukládat zvolené hodnoty filtrů do `localStorage`, odděleně pro program (`gurmanfest-filtr-program`) a doporučovač (`gurmanfest-filtr-doporucovac`). V programu uchovávat den, scénu, typ, žánr a vyhledávaný text; v doporučovači náladu, žánr, nápoj a cílovou skupinu. Po načtení stránky hodnoty obnovit, při změně automaticky uložit a při resetu uložit výchozí nastavení.
+- **Důvod:** Uživatel při přechodu mezi stránkami ani po obnovení stránky nemusí znovu nastavovat výběr. Oddělené klíče zabraňují vzájemnému přepisování filtrů.
+- **Dopad:** Úpravy pouze v `web/js/program.js` a `web/js/doporucovac.js`, bez zásahu do `prototype/` a ukládání oblíbených událostí. Parametr `hledat` v URL programu přepisuje uložený vyhledávací text. Neplatné uložené volby se ignorují; při nedostupném úložišti zůstává filtrování funkční. Funkční testy provede člen týmu samostatně.
+
 ## Pravidla další evidence
 
 Při významné změně konceptu, datového modelu, navigace nebo funkce přidat nový záznam s ID `DEC-013` a dále. Původní rozhodnutí nemažte: při jeho nahrazení změňte stav na **Nahrazeno** a uveďte ID nového rozhodnutí.
