@@ -400,6 +400,31 @@ AI slouží jako podpůrný nástroj při návrhu projektu, tvorbě dokumentace 
 - **Převzato / upraveno / odmítnuto:** Doplněny schválené organizační a UX návrhy; jejich realizace zůstává označena jako plánovaná, nikoli hotová.
 - **Ověření:** Kontrola navazujícího číslování a soulad názvů souborů s odsouhlasenou strukturou. Finální týmová kontrola po vložení do repozitáře zbývá.
 
+## AI-023 – Porovnání předaných verzí webu a doplnění evidence změn
+
+- **Datum:** 17. 11. 2026
+- **Autor zadání:** koordinátor projektu
+- **Nástroj:** ChatGPT (OpenAI)
+- **Oblast:** revize implementace a projektová dokumentace
+- **Související soubory:** `web/`, `docs/decisions.md`, `docs/ai-usage.md`
+- **Účel:** Zpětně porovnat výstup druhého milníku s aktuální verzí předanou implementačním týmem, identifikovat skutečné změny a oddělit je od rozhodnutí již zapsaných v dokumentaci.
+- **Reprezentativní zadání:** „jen mi vytáhni zpětně co asi dali do AI a jaký byly rozhodnutí (koukni i co jsem dal za rozhodnutí já, vynech co tam již je), co jakoby přidali a upravili“.
+- **Výstup AI:** Porovnání souborů a návrh záznamů DEC-029 až DEC-031: potvrzení realizace UX požadavků z DEC-027, úpravy klávesnicové přístupnosti a sémantiky a přesnější odkazy na rozpracované sekce.
+- **Převzato / upraveno / odmítnuto:** Závěry vznikly porovnáním předaných zdrojových kódů. Nebyly přiřazovány konkrétní AI prompty ani používání AI členům implementačního týmu, protože to z porovnaných souborů nelze ověřit.
+- **Ověření a limity:** Porovnány dva projektové ZIP archivy a stávající evidence. Kontrola byla statická, bez provedení nových uživatelských nebo regresních testů. Testování a `docs/progress-03.md` zpracuje určený člen týmu samostatně.
+
+## AI-024 – Implementace ukládání nastavení filtrů
+
+- **Datum:** 17. 11. 2026
+- **Autor zadání:** Daniel Bartoníček (koordinace integrace webu)
+- **Nástroj:** ChatGPT (OpenAI)
+- **Oblast:** JavaScript, zachování uživatelského nastavení
+- **Související soubory:** `web/js/program.js`, `web/js/doporucovac.js`; rozhodnutí DEC-032
+- **Reprezentativní zadání:** „tak a teď mi ještě uprav ty soubory na filtry, aby se ukládali a pošli jak jsi poslal teď jen ty upravené soubory“.
+- **Výstup AI:** Úprava obou JavaScriptových souborů doplňující zápis a obnovení hodnot formulářových filtrů pomocí `localStorage`, uložení po změně a při resetu. Programový filtr navíc respektuje vyhledávací parametr `hledat` z URL. Výstup předán jako ZIP obsahující pouze oba upravené soubory.
+- **Převzato / upraveno / odmítnuto:** Připraveny změny pro aktuální `web/` bez zásahu do historického `prototype/`, ostatního kódu nebo dokumentace. Způsob ukládání vycházel z požadavku koordinátora.
+- **Ověření a limity:** Zkontrolována syntaxe JavaScriptu; ruční funkční a regresní testy nebyly provedeny. Testování a milníkový `progress-03.md` zpracuje jiný člen týmu.
+
 ## 3. Souhrn dosavadní práce
 
 | Oblast | Dosavadní výsledek |
