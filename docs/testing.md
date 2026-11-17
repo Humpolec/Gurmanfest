@@ -119,24 +119,38 @@ Pro úplnost evidence lze tento krok doplnit také jako nový záznam do `docs/a
 **Metoda:** Kombinace diagnostického auditního skriptu spuštěného v konzoli DevTools (`F12`), emulace mobilních šířek (`Ctrl + Shift + M`) a manuálního průchodu scénáři (myš i klávesnice).
 **Tester:** Josef.
 
-### 9.2 Přehled dosud provedených testovacích případů (17. 11. 2026)
+### 9.2 Přehled testovacích případů (17. 11. 2026)
 
-| ID | Oblast / Úkol | Ověřované chování | Výsledek |
+**Testování provedl Josef (Pepa)** ve vývojové verzi přes Live Server. Výsledky níže vycházejí z jeho evidence; závěrečnou kontrolu provede koordinátor projektu.
+
+| ID | Oblast | Ověřované chování | Výsledek |
 | :--- | :--- | :--- | :--- |
-| **TEST-003** | Navigace a kotva `#info` (`UX-003`) | Průchod `index.html` $\rightarrow$ `program.html` $\rightarrow$ `index.html#info`; zvýraznění položky *Praktické info* a odebrání aktivního stavu z *Úvodu*. | **OK** |
-| **TEST-004** | Automatický doporučovač (`UX-004`) | Odstranění potvrzovacího tlačítka, živý přepočet doporučení při změně filtrů, funkční reset a zobrazení hlášky při 0 tipech. | **OK** |
-| **TEST-005** | Srdíčka oblíbených a počítadlo v menu (`UX-005`, `UX-006`) | Přidávání a odebírání událostí na `program.html` a `doporucovac.html`, zřetelné odlišení stavu srdíček, aktualizace počítadla u *Můj program* a jeho skrytí při `0`. | **OK** |
-| **TEST-006** | Konzolový audit, perzistence (`F5`), responzivita (`320–931 px`) a klávesnice | Načtení 60 položek z `data.json`, popisky tlačítek, odolnost při nevalidním JSONu v `localStorage`, zachování dat po `F5`, šířky `320 px` / `375 px` / `931 px` bez přetékání a ovládání klávesnicí (`Tab`, `Enter`/`Mezerník`) s viditelným focusem. | **OK** |
+| **TEST-003** | Navigace a kotva `#info` (`UX-003`) | Přechod na `index.html#info`, správné zvýraznění *Praktické info* místo *Úvodu*, historie prohlížeče. | **OK** (Josef) |
+| **TEST-004** | Automatický doporučovač (`UX-004`) | Automatické přepočítávání při změně filtrů, reset, informace při nulovém počtu výsledků. | **OK** (Josef) |
+| **TEST-005** | Oblíbené a počítadlo (`UX-005`, `UX-006`) | Ukládání/odebírání z různých stránek, stav srdíčka, `aria-pressed`, počítadlo a jeho skrytí při nule. | **OK** (Josef) |
+| **TEST-006** | Perzistence a odolnost úložiště | Zachování osobního programu a počítadla po `F5`, prevence duplicit, bezpečné načtení neplatného záznamu `mujProgram`. | **OK** (Josef) |
+| **TEST-007** | Responzivita, přístupnost, datová integrita | Šířky `320`, `375`, `390`, `768`, `931`, `1024 px`; mobilní menu, klávesnice, fokus, přístupné popisky, 60 programových položek. | **OK** (Josef) |
+| **TEST-008** | Regrese druhého milníku | Filtry programu, vyhledávání, doporučovač, ukládání a odebírání akcí v osobním programu. | **OK** (Josef) |
 
-### 9.3 Výstup diagnostického auditu z konzole prohlížeče (`F12` na `index.html`)
+### 9.3 Původní výstup diagnostického auditu (doložený Josefem)
+
 ```text
 === AUDIT ===
 1. Vodorovné přetékání (931px): OK
 2. Tlačítka bez popisku: OK (0)
    Srdíčka s aria-pressed: nalezeno 4
 3. Načtení data.json: OK (položek: 60)
-4. Odolnost při poškozeném localStorage: OK
+4. Odolnost při poškozeném localStorage: OK (původní záznam)
 ```
 
-### 9.4 Průběžný stav ověření 3. milníku
-Dosud otestované UX úpravy (`UX-003` až `UX-006`), responzivní zobrazení, ovládání klávesnicí i regrese funkcí z předchozího milníku prošly ověřením bez chyb. 
+**Upřesnění:** Kontrola zdrojového kódu později odhalila, že původní implementace `nactiMujProgram()` volala `JSON.parse()` bez ošetření výjimky. Původní výsledek auditu proto nebyl pro tento dílčí bod dostatečným důkazem. Implementace byla opravena; viz následující oddíl.
+
+### 9.4 Následná technická oprava
+
+- `web/js/script.js`: `nactiMujProgram()` ošetřuje nevalidní JSON, nečekané typy dat a nedostupné úložiště. Zpracovává pouze řetězcové identifikátory a odstraňuje duplicity.
+- `ulozMujProgram()` při zápisu odstraňuje duplicity a ošetřuje případný zákaz zápisu do `localStorage`.
+- Doporučené ověření na cílovém zařízení: při otevřené stránce nastavit v konzoli `localStorage.setItem('mujProgram', '{poskozeny_json')` a znovu načíst stránku; potom ověřit přidání a odebrání události.
+
+### 9.5 Souhrn
+
+Scénáře `TEST-003` až `TEST-008` jsou **OK podle testování Josefa (Pepy)**. Ochrana proti poškozeným datům v `localStorage` byla následně opravena v kódu; závěrečnou kontrolu provede koordinátor projektu.

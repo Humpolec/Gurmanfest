@@ -133,15 +133,25 @@ function seradAkce(akce) {
 
 /* MUJ PROGRAM */
 function nactiMujProgram() {
-  let ulozeno = localStorage.getItem('mujProgram');
-  if (ulozeno == null) {
+  try {
+    const ulozeno = localStorage.getItem('mujProgram');
+    if (ulozeno == null) return [];
+    const seznam = JSON.parse(ulozeno);
+    // Vracime pouze jednoznacne identifikatory, aby se nezobrazovaly duplicity.
+    if (!Array.isArray(seznam)) return [];
+    return [...new Set(seznam.filter(id => typeof id === 'string'))];
+  } catch (chyba) {
+    // Pri poskozenem zaznamu nebo nedostupnem ulozisti zustane aplikace funkcni.
     return [];
   }
-  return JSON.parse(ulozeno);
 }
 
 function ulozMujProgram(seznam) {
-  localStorage.setItem('mujProgram', JSON.stringify(seznam));
+  try {
+    localStorage.setItem('mujProgram', JSON.stringify([...new Set(seznam)]));
+  } catch (chyba) {
+    // Prohlizec muze ukladani omezit, napr. v soukromem rezimu.
+  }
   ukazPocet();
 }
 
