@@ -16,10 +16,12 @@ nactiData().then(function (d) {
   data = d;
   document.getElementById('format-programu').textContent = data.festival.formatProgramu;
   naplnFiltry();
+  obnovFiltr();
 
   let hledat = new URLSearchParams(location.search).get('hledat');
   if (hledat) {
     filtrHledat.value = hledat;
+    ulozFiltr();
   }
 
   vykresli();
@@ -54,19 +56,53 @@ function naplnFiltry() {
   }
 }
 
+/* ULOZENI A OBNOVENI FILTRU */
+const KLIC_FILTRU = 'gurmanfest-filtr-program';
+const polickaFiltru = [filtrDen, filtrScena, filtrTyp, filtrZanr, filtrHledat];
+
+function ulozFiltr() {
+  const stav = {};
+  for (const pole of polickaFiltru) stav[pole.id] = pole.value;
+  try {
+    localStorage.setItem(KLIC_FILTRU, JSON.stringify(stav));
+  } catch (e) {
+    // Kdyz je uloziste nedostupne, filtrovani dal funguje.
+  }
+}
+
+function obnovFiltr() {
+  try {
+    const stav = JSON.parse(localStorage.getItem(KLIC_FILTRU));
+    if (!stav || typeof stav !== 'object') return;
+    for (const pole of polickaFiltru) {
+      const hodnota = stav[pole.id];
+      if (typeof hodnota !== 'string') continue;
+      if (pole.tagName === 'SELECT' && !Array.from(pole.options).some(o => o.value === hodnota)) continue;
+      pole.value = hodnota;
+    }
+  } catch (e) {
+    // Chybna nebo nedostupna ulozena data ignorujeme.
+  }
+}
+
 /* FILTR */
-filtrDen.onchange = vykresli;
-filtrScena.onchange = vykresli;
-filtrTyp.onchange = vykresli;
-filtrZanr.onchange = vykresli;
-filtrHledat.oninput = vykresli;
+function aktualizujFiltr() {
+  ulozFiltr();
+  vykresli();
+}
+
+filtrDen.onchange = aktualizujFiltr;
+filtrScena.onchange = aktualizujFiltr;
+filtrTyp.onchange = aktualizujFiltr;
+filtrZanr.onchange = aktualizujFiltr;
+filtrHledat.oninput = aktualizujFiltr;
 
 filtr.onsubmit = function (e) {
   e.preventDefault();
 };
 
 filtr.onreset = function () {
-  setTimeout(vykresli, 0);
+  setTimeout(aktualizujFiltr, 0);
 };
 
 

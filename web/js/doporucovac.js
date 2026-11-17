@@ -21,6 +21,7 @@ let nazvyNapoju = {
 nactiData().then(function (d) {
   data = d;
   naplnVolby();
+  obnovVolby();
   document.getElementById('upozorneni').textContent = data.doporucovac.upozorneni;
   vykresli();
 }).catch(function () {
@@ -47,18 +48,51 @@ function naplnVolby() {
   }
 }
 
-volbaNalada.onchange = vykresli;
-volbaZanr.onchange = vykresli;
-volbaNapoj.onchange = vykresli;
-volbaSkupina.onchange = vykresli;
+/* ULOZENI A OBNOVENI VOLEB */
+const KLIC_DOPORUCOVACE = 'gurmanfest-filtr-doporucovac';
+const polickaVoleb = [volbaNalada, volbaZanr, volbaNapoj, volbaSkupina];
+
+function ulozVolby() {
+  const stav = {};
+  for (const pole of polickaVoleb) stav[pole.id] = pole.value;
+  try {
+    localStorage.setItem(KLIC_DOPORUCOVACE, JSON.stringify(stav));
+  } catch (e) {
+    // Nedostupne uloziste nema vliv na doporucovani.
+  }
+}
+
+function obnovVolby() {
+  try {
+    const stav = JSON.parse(localStorage.getItem(KLIC_DOPORUCOVACE));
+    if (!stav || typeof stav !== 'object') return;
+    for (const pole of polickaVoleb) {
+      const hodnota = stav[pole.id];
+      if (typeof hodnota !== 'string') continue;
+      if (!Array.from(pole.options).some(o => o.value === hodnota)) continue;
+      pole.value = hodnota;
+    }
+  } catch (e) {
+    // Neplatny zaznam ignorujeme.
+  }
+}
+
+function aktualizujVolby() {
+  ulozVolby();
+  vykresli();
+}
+
+volbaNalada.onchange = aktualizujVolby;
+volbaZanr.onchange = aktualizujVolby;
+volbaNapoj.onchange = aktualizujVolby;
+volbaSkupina.onchange = aktualizujVolby;
 
 formular.onsubmit = function (e) {
   e.preventDefault();
-  vykresli();
 };
 
 formular.onreset = function () {
-  setTimeout(vykresli, 0);
+  setTimeout(aktualizujVolby, 0);
 };
 
 
@@ -93,7 +127,7 @@ function vykresli() {
     let koncert = najdi(data.program, tip.koncertEventId);
 
     html += '<article class="tip">';
-    html += '<h3>' + tip.nazev + '</h3>';
+    html += '<h2>' + tip.nazev + '</h2>';
     html += '<p class="tip-proc">' + tip.proc + '</p>';
     html += '<div class="tip-parovani">';
     html += '<strong>' + region.nazev + ' (' + region.zeme + ')</strong>';

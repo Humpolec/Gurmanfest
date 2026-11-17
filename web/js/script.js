@@ -1,16 +1,90 @@
 /* MENU */
 let header = document.querySelector('.header');
 let burger = document.querySelector('.burger');
+let menu = document.querySelector('.menu');
+
+function otevriMenu(otevrit) {
+  if (otevrit) {
+    header.classList.add('open');
+    burger.setAttribute('aria-expanded', 'true');
+    burger.setAttribute('aria-label', 'Zavřít menu');
+  } else {
+    header.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+    burger.setAttribute('aria-label', 'Otevřít menu');
+  }
+}
 
 burger.onclick = function () {
-  header.classList.toggle('open');
+  otevriMenu(!header.classList.contains('open'));
 };
 
 let menuLinks = document.querySelectorAll('.menu a');
 for (let i = 0; i < menuLinks.length; i++) {
-  menuLinks[i].onclick = function () {
-    header.classList.remove('open');
-  };
+  menuLinks[i].addEventListener('click', function () {
+    otevriMenu(false);
+  });
+}
+
+document.addEventListener('keydown', function (e) {
+  if (e.key == 'Escape' && header.classList.contains('open')) {
+    otevriMenu(false);
+    burger.focus();
+  }
+});
+
+
+/* ZVYRAZNENI MENU */
+function zvyrazniMenu(kotva) {
+  let stranka = location.pathname.split('/').pop();
+  if (stranka == '') {
+    stranka = 'index.html';
+  }
+
+  let aktivni = null;
+  for (let i = 0; i < menuLinks.length; i++) {
+    let casti = menuLinks[i].getAttribute('href').split('#');
+    let soubor = casti[0];
+    let odkazKotva = '';
+    if (casti[1]) {
+      odkazKotva = '#' + casti[1];
+    }
+    if (soubor != stranka) continue;
+
+    if (odkazKotva == kotva) {
+      aktivni = menuLinks[i];
+    } else if (odkazKotva == '' && aktivni == null) {
+      aktivni = menuLinks[i];
+    }
+  }
+
+  for (let i = 0; i < menuLinks.length; i++) {
+    menuLinks[i].classList.remove('active');
+    menuLinks[i].removeAttribute('aria-current');
+  }
+  if (aktivni) {
+    aktivni.classList.add('active');
+    aktivni.setAttribute('aria-current', 'page');
+  }
+}
+
+zvyrazniMenu(location.hash);
+
+window.addEventListener('hashchange', function () {
+  zvyrazniMenu(location.hash);
+});
+
+/* PRAKTICKE INFO PRI SCROLLOVANI */
+let sekceInfo = document.getElementById('info');
+if (sekceInfo) {
+  window.addEventListener('scroll', function () {
+    let horni = sekceInfo.getBoundingClientRect().top;
+    if (horni < window.innerHeight / 2) {
+      zvyrazniMenu('#info');
+    } else {
+      zvyrazniMenu('');
+    }
+  });
 }
 
 
@@ -68,6 +142,7 @@ function nactiMujProgram() {
 
 function ulozMujProgram(seznam) {
   localStorage.setItem('mujProgram', JSON.stringify(seznam));
+  ukazPocet();
 }
 
 function jeVProgramu(id) {
@@ -86,18 +161,52 @@ function prepniVProgramu(id) {
 }
 
 
+/* POCET V MENU */
+function ukazPocet() {
+  let pocet = nactiMujProgram().length;
+  let odznaky = document.querySelectorAll('.pocet-programu');
+  for (let i = 0; i < odznaky.length; i++) {
+    odznaky[i].querySelector('.pocet-cislo').textContent = pocet;
+    if (pocet > 0) {
+      odznaky[i].classList.add('plny');
+      odznaky[i].querySelector('img').src = 'images/icons/heart-white.svg';
+    } else {
+      odznaky[i].classList.remove('plny');
+      odznaky[i].querySelector('img').src = 'images/icons/heart.svg';
+    }
+  }
+}
+
+ukazPocet();
+
+window.addEventListener('storage', function () {
+  ukazPocet();
+  nastavSrdicka();
+});
+
+
 /* SRDICKA */
 function prekresliSrdicko(tlacitko) {
   let img = tlacitko.querySelector('img');
   let text = tlacitko.querySelector('span');
-  if (jeVProgramu(tlacitko.dataset.id)) {
-    img.src = 'images/icons/heart-full.svg';
-    tlacitko.setAttribute('aria-label', 'Odebrat z mého programu');
-    if (text) text.textContent = 'V mém programu';
+  let ulozeno = jeVProgramu(tlacitko.dataset.id);
+
+  if (ulozeno) {
+    tlacitko.classList.add('aktivni');
+    img.src = 'images/icons/heart-white.svg';
   } else {
+    tlacitko.classList.remove('aktivni');
     img.src = 'images/icons/heart.svg';
-    tlacitko.setAttribute('aria-label', 'Přidat do mého programu');
-    if (text) text.textContent = 'Do mého programu';
+  }
+
+  if (text && ulozeno) {
+    text.textContent = 'V mém programu';
+  } else if (text) {
+    text.textContent = 'Do mého programu';
+  } else if (ulozeno) {
+    tlacitko.setAttribute('aria-pressed', 'true');
+  } else {
+    tlacitko.setAttribute('aria-pressed', 'false');
   }
 }
 
@@ -127,7 +236,8 @@ function htmlAkce(data, akce, tlacitko) {
     html += '<li class="akce degustace">';
   }
 
-  html += '<div class="akce-cas"><strong>' + akce.zacatek + '</strong><span>' + hezkyDen(akce.den) + '<br>do ' + akce.konec + '</span></div>';
+  html += '<div class="akce-cas"><strong><time datetime="' + akce.den + 'T' + akce.zacatek + '">' + akce.zacatek + '</time></strong>';
+  html += '<span>' + hezkyDen(akce.den) + '<br>do ' + akce.konec + '</span></div>';
   html += '<div class="akce-text">';
 
   let ucinkujici = [];
@@ -153,9 +263,9 @@ function htmlAkce(data, akce, tlacitko) {
   html += '</div>';
 
   if (tlacitko == 'odebrat') {
-    html += '<button class="odebrat" data-id="' + akce.id + '">Odebrat</button>';
+    html += '<button type="button" class="odebrat" data-id="' + akce.id + '">Odebrat</button>';
   } else {
-    html += '<button class="heart heart-text" data-id="' + akce.id + '"><img src="images/icons/heart.svg" alt=""><span>Do mého programu</span></button>';
+    html += '<button type="button" class="heart heart-text" data-id="' + akce.id + '"><img src="images/icons/heart.svg" alt=""><span>Do mého programu</span></button>';
   }
 
   html += '</li>';
