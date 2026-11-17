@@ -54,7 +54,6 @@ volbaSkupina.onchange = vykresli;
 
 formular.onsubmit = function (e) {
   e.preventDefault();
-  vykresli();
 };
 
 formular.onreset = function () {
@@ -93,7 +92,7 @@ function vykresli() {
     let koncert = najdi(data.program, tip.koncertEventId);
 
     html += '<article class="tip">';
-    html += '<h3>' + tip.nazev + '</h3>';
+    html += '<h2>' + tip.nazev + '</h2>';
     html += '<p class="tip-proc">' + tip.proc + '</p>';
     html += '<div class="tip-parovani">';
     html += '<strong>' + region.nazev + ' (' + region.zeme + ')</strong>';
