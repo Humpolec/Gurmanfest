@@ -111,3 +111,32 @@ Dva plánované průchody funkčním prototypem Gurmánfestu byly **úspěšně 
 ChatGPT (OpenAI) byl použit k návrhu struktury dvou scénářů, postupnému předkládání testovacích kroků, formulaci očekávaných výsledků a redakčnímu sestavení tohoto protokolu. **Vlastní interakce s webem a potvrzení skutečných výsledků provedl uživatel.** AI sama web nespouštěla a výsledky funkčních kroků nezávisle neověřovala.
 
 Pro úplnost evidence lze tento krok doplnit také jako nový záznam do `docs/ai-usage.md`.
+
+## 9. Testování 3. milníku – Implementace `web/` a UX úpravy (průběžný protokol)
+
+### 9.1 Prostředí a metoda ověření
+**Testovaná verze:** Složka `web/` spuštěná přes lokální HTTP server (VS Code Live Server, `http://127.0.0.1:5500/web/index.html`).
+**Metoda:** Kombinace diagnostického auditního skriptu spuštěného v konzoli DevTools (`F12`), emulace mobilních šířek (`Ctrl + Shift + M`) a manuálního průchodu scénáři (myš i klávesnice).
+**Tester:** Josef.
+
+### 9.2 Přehled dosud provedených testovacích případů (17. 11. 2026)
+
+| ID | Oblast / Úkol | Ověřované chování | Výsledek |
+| :--- | :--- | :--- | :--- |
+| **TEST-003** | Navigace a kotva `#info` (`UX-003`) | Průchod `index.html` $\rightarrow$ `program.html` $\rightarrow$ `index.html#info`; zvýraznění položky *Praktické info* a odebrání aktivního stavu z *Úvodu*. | **OK** |
+| **TEST-004** | Automatický doporučovač (`UX-004`) | Odstranění potvrzovacího tlačítka, živý přepočet doporučení při změně filtrů, funkční reset a zobrazení hlášky při 0 tipech. | **OK** |
+| **TEST-005** | Srdíčka oblíbených a počítadlo v menu (`UX-005`, `UX-006`) | Přidávání a odebírání událostí na `program.html` a `doporucovac.html`, zřetelné odlišení stavu srdíček, aktualizace počítadla u *Můj program* a jeho skrytí při `0`. | **OK** |
+| **TEST-006** | Konzolový audit, perzistence (`F5`), responzivita (`320–931 px`) a klávesnice | Načtení 60 položek z `data.json`, popisky tlačítek, odolnost při nevalidním JSONu v `localStorage`, zachování dat po `F5`, šířky `320 px` / `375 px` / `931 px` bez přetékání a ovládání klávesnicí (`Tab`, `Enter`/`Mezerník`) s viditelným focusem. | **OK** |
+
+### 9.3 Výstup diagnostického auditu z konzole prohlížeče (`F12` na `index.html`)
+```text
+=== AUDIT ===
+1. Vodorovné přetékání (931px): OK
+2. Tlačítka bez popisku: OK (0)
+   Srdíčka s aria-pressed: nalezeno 4
+3. Načtení data.json: OK (položek: 60)
+4. Odolnost při poškozeném localStorage: OK
+```
+
+### 9.4 Průběžný stav ověření 3. milníku
+Dosud otestované UX úpravy (`UX-003` až `UX-006`), responzivní zobrazení, ovládání klávesnicí i regrese funkcí z předchozího milníku prošly ověřením bez chyb. 
