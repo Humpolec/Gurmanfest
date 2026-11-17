@@ -1,0 +1,9 @@
+GURMÁNFEST – OFFLINE EXPORT (3. MILNÍK)
+
+1. Rozbal celý ZIP do jedné složky.
+2. Spusť index.html dvojklikem (Chrome, Edge nebo Firefox).
+3. Web nepotřebuje Live Server ani připojení k internetu.
+
+Programová data jsou vložena v js/data-inline.js.
+Uložené filtry a Můj program využívají localStorage.
+Poznámka: v režimu file:// může každý prohlížeč ukládání omezit.
